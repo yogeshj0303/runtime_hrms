@@ -63,9 +63,9 @@
                     </td>
                     <td>
                         @if($strike->status == 'Active')
-                            <form action="{{ route('employee.profile.strikes.waive', ['id' => $employee->id, 'strike' => $strike->id]) }}" method="POST" class="d-inline">
+                            <form action="{{ route('employee.profile.strikes.waive', ['id' => $employee->id, 'strike' => $strike->id]) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to waive this strike?', 'Waive Strike');">
                                 @csrf
-                                <button type="submit" class="btn btn-sm btn-soft-danger" onclick="return confirm('Are you sure you want to waive this strike?')">Waive</button>
+                                <button type="submit" class="btn btn-sm btn-soft-danger">Waive</button>
                             </form>
                         @else
                             -

@@ -149,7 +149,7 @@
                         <button type="button" class="btn btn-sm btn-secondary d-inline-flex align-items-center gap-1" onclick="openEditModal({{ $currentWork->id }}, '{{ \Carbon\Carbon::parse($currentWork->effective_from)->format('Y-m') }}', {{ $currentWork->business_unit_id ?? 'null' }}, {{ $currentWork->location_id ?? 'null' }}, {{ $currentWork->cost_center_id ?? 'null' }}, {{ $currentWork->department_id ?? 'null' }}, {{ $currentWork->grade_id ?? 'null' }}, {{ $currentWork->designation_id ?? 'null' }}, {{ $currentWork->reporting_manager_id ?? 'null' }}, {{ $currentWork->hr_manager_id ?? 'null' }}, {{ $currentWork->indirect_manager_id ?? 'null' }}, {{ $currentWork->is_promotion ? 'true' : 'false' }})">
                             <i class="ri-pencil-line"></i> Edit
                         </button>
-                        <form action="{{ route('employee.profile.work-profile.destroy', ['id' => $employee->id, 'work_profile_id' => $currentWork->id]) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this revision?');">
+                        <form action="{{ route('employee.profile.work-profile.destroy', ['id' => $employee->id, 'work_profile_id' => $currentWork->id]) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this revision?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger d-inline-flex align-items-center">
@@ -262,7 +262,7 @@
                             <i class="ri-pencil-line"></i>
                         </button>
                         @if($currentWork && $currentWork->reporting_manager_id)
-                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'reporting']) }}" method="POST" class="d-inline" onsubmit="return confirm('Remove reporting manager?');">
+                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'reporting']) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to remove the reporting manager?');">
                                 @csrf
                                 <button type="submit" class="btn-circle-delete" title="Remove Manager">
                                     <i class="ri-delete-bin-line"></i>
@@ -303,7 +303,7 @@
                             <i class="ri-pencil-line"></i>
                         </button>
                         @if($currentWork && $currentWork->hr_manager_id)
-                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'hr']) }}" method="POST" class="d-inline" onsubmit="return confirm('Remove HR manager?');">
+                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'hr']) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to remove the HR manager?');">
                                 @csrf
                                 <button type="submit" class="btn-circle-delete" title="Remove Manager">
                                     <i class="ri-delete-bin-line"></i>
@@ -346,7 +346,7 @@
                             <i class="ri-pencil-line"></i>
                         </button>
                         @if($currentWork && $currentWork->indirect_manager_id)
-                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'indirect']) }}" method="POST" class="d-inline" onsubmit="return confirm('Remove Indirect manager?');">
+                            <form action="{{ route('employee.profile.work-profile.remove-manager', ['id' => $employee->id, 'work_profile_id' => $currentWork->id, 'type' => 'indirect']) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to remove the Indirect manager?');">
                                 @csrf
                                 <button type="submit" class="btn-circle-delete" title="Remove Manager">
                                     <i class="ri-delete-bin-line"></i>

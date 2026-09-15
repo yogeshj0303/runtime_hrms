@@ -41,10 +41,10 @@
                             <td class="fw-bold fs-14 text-dark">{{ number_format($revision->ctc * 12, 0) }} <span class="text-muted fs-12 fw-normal">/y</span></td>
                             <td class="text-end">
                                 <a href="{{ route('employee.profile.salary', ['id' => $employee->id, 'edit_id' => $revision->id]) }}" class="btn-circle-edit me-1" title="Edit"><i class="ri-pencil-line"></i></a>
-                                <form action="{{ route('employee.profile.salary.destroy', ['id' => $employee->id, 'revision_id' => $revision->id]) }}" method="POST" class="d-inline">
+                                <form action="{{ route('employee.profile.salary.destroy', ['id' => $employee->id, 'revision_id' => $revision->id]) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this salary revision?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn-circle-delete" title="Delete" onclick="return confirm('Are you sure you want to delete this revision?')"><i class="ri-delete-bin-line"></i></button>
+                                    <button type="submit" class="btn-circle-delete" title="Delete"><i class="ri-delete-bin-line"></i></button>
                                 </form>
                             </td>
                         </tr>

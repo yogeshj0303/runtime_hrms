@@ -39,7 +39,7 @@
         </div>
         @endif
 
-        <form action="{{ route('employee.profile.deactivate.submit', $employee->id) }}" method="POST" class="p-3 bg-light rounded border">
+        <form action="{{ route('employee.profile.deactivate.submit', $employee->id) }}" method="POST" class="p-3 bg-light rounded border" onsubmit="return confirmDelete(event, this, 'Are you sure you want to deactivate this employee?', 'Confirm Deactivation');">
             @csrf
             <h6 class="fw-bold fs-14 text-danger mb-3"><i class="ri-error-warning-line me-1"></i> Separation Details</h6>
             <div class="row mb-3">
@@ -58,7 +58,7 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-danger btn-sm px-4 fw-semibold" onclick="return confirm('Are you sure you want to deactivate this employee?');">
+            <button type="submit" class="btn btn-danger btn-sm px-4 fw-semibold">
                 <i class="ri-user-unfollow-line me-1"></i> Confirm Deactivation
             </button>
         </form>

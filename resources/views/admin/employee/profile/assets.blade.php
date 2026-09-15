@@ -40,7 +40,7 @@
                         @endif
                     </td>
                     <td class="text-end">
-                        <form action="{{ route('employee.profile.assets.destroy', ['id' => $employee->id, 'asset_id' => $asset->id]) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure you want to delete this asset?');">
+                        <form action="{{ route('employee.profile.assets.destroy', ['id' => $employee->id, 'asset_id' => $asset->id]) }}" method="POST" class="d-inline-block" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this asset?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn-circle-delete" title="Delete Asset">

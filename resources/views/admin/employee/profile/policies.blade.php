@@ -212,7 +212,7 @@
                         </div>
                     </div>
                     <div>
-                        <form action="{{ route('employee.profile.policies.destroy', ['id' => $employee->id, 'policy_id' => $historyPolicy->id]) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this historical revision?');">
+                        <form action="{{ route('employee.profile.policies.destroy', ['id' => $employee->id, 'policy_id' => $historyPolicy->id]) }}" method="POST" class="d-inline" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this historical revision?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn-circle-delete" title="Delete revision"><i class="ri-delete-bin-line"></i></button>

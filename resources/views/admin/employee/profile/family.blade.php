@@ -49,7 +49,7 @@
                     <td class="text-muted small">{{ $member->notes ?? '-' }}</td>
                     <td>{{ $member->dob ? \Carbon\Carbon::parse($member->dob)->format('d M Y') : '-' }}</td>
                     <td class="text-end">
-                        <form action="{{ route('employee.profile.family.destroy', ['id' => $employee->id, 'member_id' => $member->id]) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure you want to delete this family member?');">
+                        <form action="{{ route('employee.profile.family.destroy', ['id' => $employee->id, 'member_id' => $member->id]) }}" method="POST" class="d-inline-block" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this family member?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn-circle-delete" title="Delete Family Member">

@@ -58,7 +58,7 @@
                                 <a href="{{ asset($doc->document_file) }}" target="_blank" class="btn btn-sm btn-light btn-icon me-1" title="View/Download">
                                     <i class="ri-download-2-line"></i>
                                 </a>
-                                <form action="{{ route('employee.profile.documents.destroy', $doc->id) }}" method="POST" class="d-inline-block" onsubmit="return confirm('Are you sure you want to delete this document?');">
+                                <form action="{{ route('employee.profile.documents.destroy', $doc->id) }}" method="POST" class="d-inline-block" onsubmit="return confirmDelete(event, this, 'Are you sure you want to delete this document?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn-circle-delete" title="Delete Document">

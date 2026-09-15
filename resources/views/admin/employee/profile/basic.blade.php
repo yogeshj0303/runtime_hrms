@@ -429,23 +429,41 @@
     });
 
     window.removeTag = function(tag) {
-        if(!confirm('Are you sure you want to remove this tag?')) return;
-        
-        fetch("{{ route('employee.profile.tags.remove', ['id' => $employee->id]) }}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        Swal.fire({
+            title: 'Remove Tag?',
+            text: 'Are you sure you want to remove the tag "' + tag + '"?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#b83a4b',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: 'Yes, remove it',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                confirmButton: 'btn btn-danger px-4 me-2',
+                cancelButton: 'btn btn-light px-4 border'
             },
-            body: JSON.stringify({ tag: tag })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.status) {
-                renderTags(data.tags);
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("{{ route('employee.profile.tags.remove', ['id' => $employee->id]) }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({ tag: tag })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.status) {
+                        renderTags(data.tags);
+                        showToast('Tag removed successfully.');
+                    }
+                });
             }
         });
-    }
+    };
 
     function renderTags(tags) {
         if(tags.length === 0) {

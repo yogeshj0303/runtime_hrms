@@ -560,7 +560,42 @@
 
 @section('script')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    // Global SweetAlert2 Form Confirmation
+    function confirmDelete(event, form, message = 'Are you sure you want to delete this record?', title = 'Are you sure?') {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        Swal.fire({
+            title: title,
+            text: message,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#b83a4b',
+            cancelButtonColor: '#64748b',
+            confirmButtonText: 'Yes, proceed',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true,
+            customClass: {
+                confirmButton: 'btn btn-danger px-4 me-2',
+                cancelButton: 'btn btn-light px-4 border'
+            },
+            buttonsStyling: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (typeof form === 'string') {
+                    const formElem = document.getElementById(form);
+                    if (formElem) formElem.submit();
+                } else if (form && form.tagName === 'FORM') {
+                    form.submit();
+                }
+            }
+        });
+        return false;
+    }
+
     // Quick copy to clipboard helper
     function copyToClipboard(text, element) {
         if (!text || text === 'Not added' || text === 'Not Defined') return;

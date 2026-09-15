@@ -26,7 +26,7 @@
                     <span class="badge bg-light text-dark border">{{ $address->type }}</span>
                     <div>
                         <a href="javascript:void(0)" class="text-primary me-2" onclick="editAddress({{ $address }})"><i class="ri-pencil-line"></i></a>
-                        <a href="javascript:void(0)" class="text-danger" onclick="document.getElementById('delete-address-{{ $address->id }}').submit();"><i class="ri-delete-bin-line"></i></a>
+                        <a href="javascript:void(0)" class="text-danger" onclick="confirmDelete(event, 'delete-address-{{ $address->id }}', 'Are you sure you want to delete this address?');"><i class="ri-delete-bin-line"></i></a>
                         <form id="delete-address-{{ $address->id }}" action="{{ route('employee.profile.address.destroy', $address->id) }}" method="POST" class="d-none">
                             @csrf
                             @method('DELETE')
