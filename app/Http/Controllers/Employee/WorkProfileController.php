@@ -34,6 +34,18 @@ class WorkProfileController extends Controller
     {
         $employee = Employee::findOrFail($request->id);
 
+        $request->validate([
+            'effective_from' => 'required',
+            'department_id' => 'nullable|integer',
+            'designation_id' => 'nullable|integer',
+            'location_id' => 'nullable|integer',
+            'cost_center_id' => 'nullable|integer',
+            'grade_id' => 'nullable|integer',
+            'business_unit_id' => 'nullable|integer',
+        ], [
+            'effective_from.required' => 'Effective month is required.',
+        ]);
+
         // Mark previous as not current
         $employee->workProfiles()->update(['is_current' => false]);
 
@@ -77,6 +89,18 @@ class WorkProfileController extends Controller
     {
         $employee = Employee::findOrFail($request->id);
         $workProfile = $employee->workProfiles()->findOrFail($work_profile_id);
+
+        $request->validate([
+            'effective_from' => 'required',
+            'department_id' => 'nullable|integer',
+            'designation_id' => 'nullable|integer',
+            'location_id' => 'nullable|integer',
+            'cost_center_id' => 'nullable|integer',
+            'grade_id' => 'nullable|integer',
+            'business_unit_id' => 'nullable|integer',
+        ], [
+            'effective_from.required' => 'Effective month is required.',
+        ]);
 
         $effectiveFrom = \Carbon\Carbon::parse($request->effective_from . '-01')->format('Y-m-d');
         

@@ -9,6 +9,24 @@ use App\Models\BusinessUnit;
 
 class BusinessUnitController extends Controller
 {
+    private function getActiveBusinessId()
+    {
+        $businessId = Auth::user()->active_business_id;
+        if (!$businessId) {
+            $business = \App\Models\Business::where('user_id', Auth::id())->first();
+            if (!$business) {
+                $business = \App\Models\Business::create([
+                    'user_id' => Auth::id(),
+                    'business_name' => 'Main Organization',
+                    'status' => 'active',
+                ]);
+            }
+            Auth::user()->update(['active_business_id' => $business->id]);
+            $businessId = $business->id;
+        }
+        return $businessId;
+    }
+
     /**
      * Display listing
      */
@@ -16,7 +34,7 @@ class BusinessUnitController extends Controller
     {
         $businessUnits = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->latest()
             ->get();
@@ -52,7 +70,7 @@ class BusinessUnitController extends Controller
             'user_id' => Auth::id(),
 
             'business_id' =>
-                Auth::user()->active_business_id,
+                $this->getActiveBusinessId(),
 
             'unit_name' =>
                 $request->unit_name,
@@ -91,7 +109,7 @@ class BusinessUnitController extends Controller
     {
         $businessUnit = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->findOrFail($id);
 
@@ -113,7 +131,7 @@ class BusinessUnitController extends Controller
 
         $businessUnit = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->findOrFail($id);
 
@@ -156,7 +174,7 @@ class BusinessUnitController extends Controller
     {
         $businessUnit = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->findOrFail($id);
 
@@ -177,7 +195,7 @@ class BusinessUnitController extends Controller
     {
         $businessUnit = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->findOrFail($id);
 
@@ -199,7 +217,7 @@ class BusinessUnitController extends Controller
 
         $businessUnit = BusinessUnit::where(
                 'business_id',
-                Auth::user()->active_business_id
+                $this->getActiveBusinessId()
             )
             ->findOrFail($id);
 

@@ -685,6 +685,7 @@ Route::prefix('capture')->group(function () {
            Route::put('/policies/{id}', [EmployeePolicyController::class, 'update'])->name('policies.update');
            Route::delete('/policies/{id}/destroy/{policy_id}', [EmployeePolicyController::class, 'destroy'])->name('policies.destroy');
            Route::get('/salary', [SalaryController::class, 'index'])->name('salary');
+           Route::get('/salary/export/{id}', [SalaryController::class, 'exportExcel'])->name('salary.export');
            Route::post('/salary', [SalaryController::class, 'store'])->name('salary.store');
            Route::put('/salary/{revision_id}', [SalaryController::class, 'update'])->name('salary.update');
            Route::delete('/salary/{revision_id}', [SalaryController::class, 'destroy'])->name('salary.destroy');

@@ -1,10 +1,8 @@
-@extends('layouts.master')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
     New Onboarding Form
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 <style>
     .page-header-title {
         font-size: 16px;
@@ -83,17 +81,17 @@
         margin-bottom: 8px;
     }
 </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="mb-4">
     <!-- Breadcrumb -->
     <div class="d-flex align-items-center mb-2">
         <i class="ri-arrow-left-s-line text-muted"></i>
-        <a href="{{ route('onboarding.index') }}" class="text-decoration-none breadcrumb-text">Onboarding</a>
+        <a href="<?php echo e(route('onboarding.index')); ?>" class="text-decoration-none breadcrumb-text">Onboarding</a>
         <span class="mx-1 text-muted fs-12">/</span>
-        <a href="{{ route('onboarding.forms.index') }}" class="text-decoration-none breadcrumb-text">Onboarding Forms</a>
+        <a href="<?php echo e(route('onboarding.forms.index')); ?>" class="text-decoration-none breadcrumb-text">Onboarding Forms</a>
         <span class="mx-1 text-muted fs-12">/</span>
         <span class="breadcrumb-text">New Onboarding Form</span>
     </div>
@@ -113,7 +111,7 @@
     </div>
 </div>
 
-@if(!$form || !isset($form->part_a_data))
+<?php if(!$form || !isset($form->part_a_data)): ?>
 <!-- PART A (Form Mode) -->
 <div class="card border border-light shadow-sm mb-4">
     <div class="card-body p-4">
@@ -122,8 +120,8 @@
         </h6>
         <p class="text-muted fs-12 mb-4">Enter Candidate's details and verify PAN / Aadhaar and Mobile Number instantly.</p>
         
-        <form action="{{ route('onboarding.forms.store') }}" method="POST">
-            @csrf
+        <form action="<?php echo e(route('onboarding.forms.store')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
             <input type="hidden" name="step" value="part_a">
             
             <div class="row">
@@ -131,17 +129,17 @@
                 <div class="col-lg-7 pe-lg-4">
                     <div class="mb-3">
                         <label class="form-label text-dark fs-12 mb-1">Candidate Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control form-control-sm" name="name" value="{{ old('name', trim(($employee->first_name ?? '') . ' ' . ($employee->last_name ?? ''))) }}" required placeholder="e.g. John Doe">
+                        <input type="text" class="form-control form-control-sm" name="name" value="<?php echo e(old('name', trim(($employee->first_name ?? '') . ' ' . ($employee->last_name ?? '')))); ?>" required placeholder="e.g. John Doe">
                     </div>
 
                     <div class="row mb-1">
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">E-Mail Address</label>
-                            <input type="email" class="form-control form-control-sm" name="email" value="{{ old('email', $employee->email ?? '') }}" placeholder="e.g. john@example.com">
+                            <input type="email" class="form-control form-control-sm" name="email" value="<?php echo e(old('email', $employee->email ?? '')); ?>" placeholder="e.g. john@example.com">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">Mobile Number</label>
-                            <input type="text" class="form-control form-control-sm" name="mobile" value="{{ old('mobile', $employee->phone ?? '') }}" placeholder="e.g. 9876543210">
+                            <input type="text" class="form-control form-control-sm" name="mobile" value="<?php echo e(old('mobile', $employee->phone ?? '')); ?>" placeholder="e.g. 9876543210">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -152,14 +150,14 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">Joining Date</label>
                             <div class="input-group input-group-sm">
-                                <input type="date" class="form-control" name="joining_date" value="{{ old('joining_date', $employee->joining_date ?? '') }}">
+                                <input type="date" class="form-control" name="joining_date" value="<?php echo e(old('joining_date', $employee->joining_date ?? '')); ?>">
                                 <span class="input-group-text bg-white"><i class="ri-calendar-event-line"></i></span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">Confirmation Date</label>
                             <div class="input-group input-group-sm">
-                                <input type="date" class="form-control" name="confirmation_date" value="{{ old('confirmation_date', $employee->confirmation_date ?? '') }}">
+                                <input type="date" class="form-control" name="confirmation_date" value="<?php echo e(old('confirmation_date', $employee->confirmation_date ?? '')); ?>">
                                 <span class="input-group-text bg-white"><i class="ri-calendar-event-line"></i></span>
                             </div>
                         </div>
@@ -172,14 +170,14 @@
                         <div class="col-md-4 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">Notice Period</label>
                             <div class="input-group input-group-sm">
-                                <input type="number" class="form-control" name="notice_period" value="{{ old('notice_period', 30) }}">
+                                <input type="number" class="form-control" name="notice_period" value="<?php echo e(old('notice_period', 30)); ?>">
                                 <span class="input-group-text bg-light text-muted border-0">days</span>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label text-dark fs-12 mb-1">Date of Birth</label>
                             <div class="input-group input-group-sm">
-                                <input type="date" class="form-control" name="dob" value="{{ old('dob', $employee->dob ?? '') }}">
+                                <input type="date" class="form-control" name="dob" value="<?php echo e(old('dob', $employee->dob ?? '')); ?>">
                                 <span class="input-group-text bg-white"><i class="ri-calendar-event-line"></i></span>
                             </div>
                         </div>
@@ -252,7 +250,7 @@
         </form>
     </div>
 </div>
-@else
+<?php else: ?>
 <!-- PART A (Collapsed Mode) -->
 <div class="card border border-light shadow-sm mb-3">
     <div class="card-body p-3 d-flex justify-content-between align-items-center">
@@ -261,8 +259,8 @@
                 <i class="ri-checkbox-circle-fill fs-16"></i> Part A - Candidate Details
             </div>
             <div class="ms-4 ps-1">
-                <div class="candidate-name">{{ $form->part_a_data['name'] ?? 'Candidate Name' }}</div>
-                <div class="candidate-contact mt-1">{{ $form->part_a_data['email'] ?? '' }} | {{ $form->part_a_data['mobile'] ?? '' }}</div>
+                <div class="candidate-name"><?php echo e($form->part_a_data['name'] ?? 'Candidate Name'); ?></div>
+                <div class="candidate-contact mt-1"><?php echo e($form->part_a_data['email'] ?? ''); ?> | <?php echo e($form->part_a_data['mobile'] ?? ''); ?></div>
             </div>
         </div>
         <div>
@@ -282,10 +280,10 @@
         </h6>
         <p class="text-muted fs-12 mb-4 ms-4">Set department, designation and other work profile options for this candidate. You can edit these details at the time of approving this form.</p>
         
-        <form action="{{ route('onboarding.forms.store') }}" method="POST" class="ms-4">
-            @csrf
+        <form action="<?php echo e(route('onboarding.forms.store')); ?>" method="POST" class="ms-4">
+            <?php echo csrf_field(); ?>
             <input type="hidden" name="step" value="part_b">
-            <input type="hidden" name="form_id" value="{{ $form->id }}">
+            <input type="hidden" name="form_id" value="<?php echo e($form->id); ?>">
             
             <div class="row">
                 <!-- Column 1: Organization Structure -->
@@ -294,11 +292,12 @@
                         <label class="form-section-title">Business Unit</label>
                         <select name="business_unit" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($businessUnits as $bu)
-                                <option value="{{ $bu->id }}" {{ (isset($form->part_b_data['business_unit']) && $form->part_b_data['business_unit'] == $bu->id) ? 'selected' : '' }}>
-                                    {{ $bu->name ?? $bu->unit_name }}
+                            <?php $__currentLoopData = $businessUnits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($bu->id); ?>" <?php echo e((isset($form->part_b_data['business_unit']) && $form->part_b_data['business_unit'] == $bu->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($bu->name ?? $bu->unit_name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -306,11 +305,12 @@
                         <label class="form-section-title">Location</label>
                         <select name="location" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($locations as $loc)
-                                <option value="{{ $loc->id }}" {{ (isset($form->part_b_data['location']) && $form->part_b_data['location'] == $loc->id) ? 'selected' : '' }}>
-                                    {{ $loc->name }}
+                            <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $loc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($loc->id); ?>" <?php echo e((isset($form->part_b_data['location']) && $form->part_b_data['location'] == $loc->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($loc->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -318,11 +318,12 @@
                         <label class="form-section-title">Cost Center</label>
                         <select name="cost_center" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($costCenters as $cc)
-                                <option value="{{ $cc->id }}" {{ (isset($form->part_b_data['cost_center']) && $form->part_b_data['cost_center'] == $cc->id) ? 'selected' : '' }}>
-                                    {{ $cc->name }}
+                            <?php $__currentLoopData = $costCenters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($cc->id); ?>" <?php echo e((isset($form->part_b_data['cost_center']) && $form->part_b_data['cost_center'] == $cc->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($cc->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -330,11 +331,12 @@
                         <label class="form-section-title">Department</label>
                         <select name="department" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($departments as $dept)
-                                <option value="{{ $dept->id }}" {{ (isset($form->part_b_data['department']) && $form->part_b_data['department'] == $dept->id) ? 'selected' : '' }}>
-                                    {{ $dept->name }}
+                            <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dept): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($dept->id); ?>" <?php echo e((isset($form->part_b_data['department']) && $form->part_b_data['department'] == $dept->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($dept->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -342,11 +344,12 @@
                         <label class="form-section-title">Grade</label>
                         <select name="grade" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($grades as $grade)
-                                <option value="{{ $grade->id }}" {{ (isset($form->part_b_data['grade']) && $form->part_b_data['grade'] == $grade->id) ? 'selected' : '' }}>
-                                    {{ $grade->name }}
+                            <?php $__currentLoopData = $grades; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $grade): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($grade->id); ?>" <?php echo e((isset($form->part_b_data['grade']) && $form->part_b_data['grade'] == $grade->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($grade->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -354,11 +357,12 @@
                         <label class="form-section-title">Designation</label>
                         <select name="designation" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($designations as $desig)
-                                <option value="{{ $desig->id }}" {{ (isset($form->part_b_data['designation']) && $form->part_b_data['designation'] == $desig->id) ? 'selected' : '' }}>
-                                    {{ $desig->name }}
+                            <?php $__currentLoopData = $designations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $desig): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($desig->id); ?>" <?php echo e((isset($form->part_b_data['designation']) && $form->part_b_data['designation'] == $desig->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($desig->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                 </div>
@@ -369,11 +373,12 @@
                         <label class="form-section-title">Shift Policy</label>
                         <select name="shift_policy" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($shiftPolicies as $shift)
-                                <option value="{{ $shift->id }}" {{ (isset($form->part_b_data['shift_policy']) && $form->part_b_data['shift_policy'] == $shift->id) ? 'selected' : '' }}>
-                                    {{ $shift->shift_name ?? $shift->name }}
+                            <?php $__currentLoopData = $shiftPolicies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $shift): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($shift->id); ?>" <?php echo e((isset($form->part_b_data['shift_policy']) && $form->part_b_data['shift_policy'] == $shift->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($shift->shift_name ?? $shift->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -381,11 +386,12 @@
                         <label class="form-section-title">Week Off Policy</label>
                         <select name="week_off_policy" class="form-select form-select-sm text-muted">
                             <option value="">- Select -</option>
-                            @foreach($weekOffPolicies as $wo)
-                                <option value="{{ $wo->id }}" {{ (isset($form->part_b_data['week_off_policy']) && $form->part_b_data['week_off_policy'] == $wo->id) ? 'selected' : '' }}>
-                                    {{ $wo->policy_name ?? $wo->name }}
+                            <?php $__currentLoopData = $weekOffPolicies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $wo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($wo->id); ?>" <?php echo e((isset($form->part_b_data['week_off_policy']) && $form->part_b_data['week_off_policy'] == $wo->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($wo->policy_name ?? $wo->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
@@ -393,27 +399,28 @@
                         <label class="form-section-title">Overtime Policy</label>
                         <select name="overtime_policy" class="form-select form-select-sm text-muted">
                             <option value="">Not Applicable</option>
-                            @foreach($overtimePolicies as $ot)
-                                <option value="{{ $ot->id }}" {{ (isset($form->part_b_data['overtime_policy']) && $form->part_b_data['overtime_policy'] == $ot->id) ? 'selected' : '' }}>
-                                    {{ $ot->policy_name ?? $ot->name }}
+                            <?php $__currentLoopData = $overtimePolicies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ot): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($ot->id); ?>" <?php echo e((isset($form->part_b_data['overtime_policy']) && $form->part_b_data['overtime_policy'] == $ot->id) ? 'selected' : ''); ?>>
+                                    <?php echo e($ot->policy_name ?? $ot->name); ?>
+
                                 </option>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-section-title mb-2">Leave Policies (select all that apply)</label>
-                        @forelse($leavePolicies as $leave)
+                        <?php $__empty_1 = true; $__currentLoopData = $leavePolicies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $leave): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="form-check mb-1">
-                            <input class="form-check-input shadow-none" type="checkbox" name="leave_policies[]" value="{{ $leave->id }}" id="leave{{ $leave->id }}" {{ (isset($form->part_b_data['leave_policies']) && in_array($leave->id, $form->part_b_data['leave_policies'])) ? 'checked' : '' }}>
-                            <label class="form-check-label fs-12 text-muted" for="leave{{ $leave->id }}">{{ $leave->name }}</label>
+                            <input class="form-check-input shadow-none" type="checkbox" name="leave_policies[]" value="<?php echo e($leave->id); ?>" id="leave<?php echo e($leave->id); ?>" <?php echo e((isset($form->part_b_data['leave_policies']) && in_array($leave->id, $form->part_b_data['leave_policies'])) ? 'checked' : ''); ?>>
+                            <label class="form-check-label fs-12 text-muted" for="leave<?php echo e($leave->id); ?>"><?php echo e($leave->name); ?></label>
                         </div>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <div class="form-check mb-1">
                             <input class="form-check-input shadow-none" type="checkbox" id="leaveCasual">
                             <label class="form-check-label fs-12 text-muted" for="leaveCasual">Casual Leave</label>
                         </div>
-                        @endforelse
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -422,17 +429,18 @@
                     <div class="mb-3 bg-light p-3 rounded border" style="border-color: #f3f3f9 !important;">
                         <label class="form-section-title mb-2 text-dark">Time Rules (select all that apply)</label>
                         
-                        @forelse($timeRules as $rule)
+                        <?php $__empty_1 = true; $__currentLoopData = $timeRules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                         <div class="form-check mb-2">
-                            <input class="form-check-input shadow-none" type="checkbox" name="time_rules[]" value="{{ $rule->id }}" id="rule{{ $rule->id }}" {{ (isset($form->part_b_data['time_rules']) && in_array($rule->id, $form->part_b_data['time_rules'])) ? 'checked' : '' }}>
-                            <label class="form-check-label time-rule-label" for="rule{{ $rule->id }}">
-                                # {{ $rule->id }} {{ $rule->name ?? 'Time Rule' }}
+                            <input class="form-check-input shadow-none" type="checkbox" name="time_rules[]" value="<?php echo e($rule->id); ?>" id="rule<?php echo e($rule->id); ?>" <?php echo e((isset($form->part_b_data['time_rules']) && in_array($rule->id, $form->part_b_data['time_rules'])) ? 'checked' : ''); ?>>
+                            <label class="form-check-label time-rule-label" for="rule<?php echo e($rule->id); ?>">
+                                # <?php echo e($rule->id); ?> <?php echo e($rule->name ?? 'Time Rule'); ?>
+
                             </label>
-                            @if(isset($rule->description))
-                                <span class="time-rule-sub">- {{ $rule->description }}</span>
-                            @endif
+                            <?php if(isset($rule->description)): ?>
+                                <span class="time-rule-sub">- <?php echo e($rule->description); ?></span>
+                            <?php endif; ?>
                         </div>
-                        @empty
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <!-- Mock Time Rules matching screenshot if none in DB -->
                         <div class="form-check mb-2">
                             <input class="form-check-input shadow-none" type="checkbox" id="rule1">
@@ -459,7 +467,7 @@
                             <label class="form-check-label time-rule-label" for="rule5"># 3252 Late Coming between 00:11 to 23:59</label>
                             <span class="time-rule-sub">- Send Warning on 4-31 occurrence(s)</span>
                         </div>
-                        @endforelse
+                        <?php endif; ?>
                         
                         <div class="mt-3 fs-10 text-muted">
                             Additional rules may apply based on selected shift policy.
@@ -477,6 +485,8 @@
     </div>
 </div>
 
-@endif
+<?php endif; ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/SomyaHRMS/resources/views/admin/employee/onboarding-forms/create.blade.php ENDPATH**/ ?>

@@ -117,21 +117,37 @@ class OnboardingFormController extends Controller
         $formId = $request->input('form_id');
         $step = $request->input('step', 'part_a');
         
+        if ($step == 'part_a') {
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'nullable|email|max:255',
+                'mobile' => 'nullable|string|max:20',
+                'joining_date' => 'nullable|date',
+                'confirmation_date' => 'nullable|date',
+                'dob' => 'nullable|date',
+            ], [
+                'name.required' => 'Candidate Name is required.',
+                'email.email' => 'Please provide a valid email address.',
+            ]);
+        }
+
         if (!$formId) {
             // Create a new employee/candidate record
             $businessId = \Illuminate\Support\Facades\Auth::user()->active_business_id;
+            $name = trim((string)$request->input('name', '')) ?: 'Candidate';
+            $email = trim((string)$request->input('email', '')) ?: ('candidate_' . time() . '_' . rand(1000, 9999) . '@dummy.com');
             
-            // Generate dummy user
+            // Generate user
             $user = \App\Models\User::create([
-                'name' => $request->input('name'),
-                'email' => $request->input('email') ?? 'candidate_'.rand(1000,9999).'@dummy.com',
+                'name' => $name,
+                'email' => $email,
                 'password' => \Illuminate\Support\Facades\Hash::make('password123'),
                 'active_business_id' => $businessId,
             ]);
 
-            $names = explode(' ', $request->input('name', ''));
-            $firstName = $names[0] ?? 'Unknown';
-            $lastName = count($names) > 1 ? end($names) : null;
+            $names = explode(' ', $name);
+            $firstName = $names[0] ?? 'Candidate';
+            $lastName = count($names) > 1 ? implode(' ', array_slice($names, 1)) : null;
             
             $employee = \App\Models\Employee::create([
                 'user_id' => $user->id,
@@ -144,7 +160,7 @@ class OnboardingFormController extends Controller
                 'joining_date' => $request->input('joining_date'),
                 'confirmation_date' => $request->input('confirmation_date'),
                 'dob' => $request->input('dob'),
-                'gender' => $request->input('gender'),
+                'gender' => $request->input('gender', 'Male'),
                 'status' => 'inactive',
             ]);
 

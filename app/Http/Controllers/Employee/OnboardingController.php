@@ -118,8 +118,9 @@ class OnboardingController extends Controller
         $businessCode = \App\Models\Business::find($businessId)->business_code ?? 'B-'.rand(1000, 9999);
 
         // Create User account for employee
+        $userName = trim($request->first_name . ' ' . ($request->last_name ?? ''));
         $user = User::create([
-            'name' => trim($request->first_name . ' ' . $request->last_name),
+            'name' => $userName ?: 'Employee',
             'email' => $request->email,
             'password' => Hash::make('password123'), // Default password
             'active_business_id' => $businessId,
@@ -135,7 +136,7 @@ class OnboardingController extends Controller
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'phone' => $request->mobile_number,
+            'phone' => $request->phone ?? $request->mobile_number,
             'joining_date' => $request->joining_date,
             'confirmation_date' => $request->confirmation_date,
             'dob' => $request->dob,

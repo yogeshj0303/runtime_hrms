@@ -1,10 +1,10 @@
-@extends('layouts.master')
 
-@section('title')
+
+<?php $__env->startSection('title'); ?>
     All Employees
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
 
 <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
@@ -12,9 +12,9 @@
 
 <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet">
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="helpdesk-header">
 
@@ -53,51 +53,51 @@
     <div class="card-body">
 
         <!-- Filters Form -->
-        <form action="{{ route('business.employee') }}" method="GET" id="employeeFilterForm">
+        <form action="<?php echo e(route('business.employee')); ?>" method="GET" id="employeeFilterForm">
             <div class="row mb-3">
                 <div class="col-md-2">
                     <label class="form-label fs-12 text-muted mb-1">Business Unit</label>
                     <select class="form-select form-select-sm" name="business_unit_id" onchange="this.form.submit()">
                         <option value="">All Units</option>
-                        @foreach($businessUnits as $unit)
-                            <option value="{{ $unit->id }}" {{ request('business_unit_id') == $unit->id ? 'selected' : '' }}>{{ $unit->unit_name ?? $unit->name ?? $unit->report_title ?? 'Unit ' . $unit->id }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $businessUnits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($unit->id); ?>" <?php echo e(request('business_unit_id') == $unit->id ? 'selected' : ''); ?>><?php echo e($unit->unit_name ?? $unit->name ?? $unit->report_title ?? 'Unit ' . $unit->id); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label fs-12 text-muted mb-1">Location</label>
                     <select class="form-select form-select-sm" name="location_id" onchange="this.form.submit()">
                         <option value="">All Locations</option>
-                        @foreach($locations as $loc)
-                            <option value="{{ $loc->id }}" {{ request('location_id') == $loc->id ? 'selected' : '' }}>{{ $loc->name ?? 'Location ' . $loc->id }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $loc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($loc->id); ?>" <?php echo e(request('location_id') == $loc->id ? 'selected' : ''); ?>><?php echo e($loc->name ?? 'Location ' . $loc->id); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label class="form-label fs-12 text-muted mb-1">Cost Center</label>
                     <select class="form-select form-select-sm" name="cost_center_id" onchange="this.form.submit()">
                         <option value="">All Cost Centers</option>
-                        @foreach($costCenters as $cc)
-                            <option value="{{ $cc->id }}" {{ request('cost_center_id') == $cc->id ? 'selected' : '' }}>{{ $cc->name ?? 'CC ' . $cc->id }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $costCenters; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($cc->id); ?>" <?php echo e(request('cost_center_id') == $cc->id ? 'selected' : ''); ?>><?php echo e($cc->name ?? 'CC ' . $cc->id); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label fs-12 text-muted mb-1">Department</label>
                     <select class="form-select form-select-sm" name="department_id" onchange="this.form.submit()">
                         <option value="">All Departments</option>
-                        @foreach($departments as $dept)
-                            <option value="{{ $dept->id }}" {{ request('department_id') == $dept->id ? 'selected' : '' }}>{{ $dept->name ?? 'Dept ' . $dept->id }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $dept): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($dept->id); ?>" <?php echo e(request('department_id') == $dept->id ? 'selected' : ''); ?>><?php echo e($dept->name ?? 'Dept ' . $dept->id); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-3">
                     <label class="form-label fs-12 text-muted mb-1">Designation</label>
                     <select class="form-select form-select-sm" name="designation_id" onchange="this.form.submit()">
                         <option value="">All Designations</option>
-                        @foreach($designations as $desig)
-                            <option value="{{ $desig->id }}" {{ request('designation_id') == $desig->id ? 'selected' : '' }}>{{ $desig->name ?? 'Desig ' . $desig->id }}</option>
-                        @endforeach
+                        <?php $__currentLoopData = $designations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $desig): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($desig->id); ?>" <?php echo e(request('designation_id') == $desig->id ? 'selected' : ''); ?>><?php echo e($desig->name ?? 'Desig ' . $desig->id); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
             </div>
@@ -107,14 +107,14 @@
                 <div style="width: 250px;">
                     <label class="form-label fs-12 text-muted mb-1">Search Employee</label>
                     <div class="input-group input-group-sm">
-                        <input type="text" class="form-control" name="search" placeholder="Search employee" value="{{ request('search') }}">
+                        <input type="text" class="form-control" name="search" placeholder="Search employee" value="<?php echo e(request('search')); ?>">
                         <button type="submit" class="btn btn-secondary"><i class="ri-search-line"></i></button>
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-3">
                     <div class="form-check form-switch d-flex align-items-center gap-2">
                         <label class="form-check-label fs-13 fw-bold text-primary" for="statusActive">Active</label>
-                        <input class="form-check-input ms-0 mt-0" style="width: 35px; height: 18px;" type="checkbox" role="switch" name="status" id="statusActive" value="active" {{ request('status', 'active') == 'active' ? 'checked' : '' }} onchange="if(!this.checked) this.value='inactive'; this.form.submit()">
+                        <input class="form-check-input ms-0 mt-0" style="width: 35px; height: 18px;" type="checkbox" role="switch" name="status" id="statusActive" value="active" <?php echo e(request('status', 'active') == 'active' ? 'checked' : ''); ?> onchange="if(!this.checked) this.value='inactive'; this.form.submit()">
                         <label class="form-check-label fs-13 text-muted" for="statusInactive">Inactive</label>
                     </div>
                 </div>
@@ -138,42 +138,43 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($employees as $index => $employee)
-                    @php
+                    <?php $__empty_1 = true; $__currentLoopData = $employees; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $employee): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <?php
                         $wp = $employee->workProfiles->first();
                         $designationName = $wp && $wp->designation ? $wp->designation->name : $employee->designation;
                         $departmentName = $wp && $wp->department ? $wp->department->name : $employee->department;
                         $locationName = $wp && $wp->location ? $wp->location->name : 'N/A';
-                    @endphp
+                    ?>
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td><?php echo e($index + 1); ?></td>
                         <td>
-                            <a href="{{ route('employee.profile.summary', ['id' => $employee->id]) }}" class="text-body fw-bold">
-                                {{ $employee->first_name }} {{ $employee->last_name }}
+                            <a href="<?php echo e(route('employee.profile.summary', ['id' => $employee->id])); ?>" class="text-body fw-bold">
+                                <?php echo e($employee->first_name); ?> <?php echo e($employee->last_name); ?>
+
                             </a>
                         </td>
-                        <td>{{ $employee->employee_code }}</td>
-                        <td>{{ $designationName }}</td>
-                        <td>{{ $departmentName }}</td>
-                        <td>{{ $locationName }}</td>
-                        <td>{{ $employee->joining_date ? $employee->joining_date->format('d-M-Y') : 'N/A' }}</td>
+                        <td><?php echo e($employee->employee_code); ?></td>
+                        <td><?php echo e($designationName); ?></td>
+                        <td><?php echo e($departmentName); ?></td>
+                        <td><?php echo e($locationName); ?></td>
+                        <td><?php echo e($employee->joining_date ? $employee->joining_date->format('d-M-Y') : 'N/A'); ?></td>
                         <td>
-                            @if($employee->status === 'inactive')
+                            <?php if($employee->status === 'inactive'): ?>
                                 <span class="badge bg-danger mb-1">Inactive</span>
-                                @if($employee->exit_date)
-                                    <div class="fs-11 text-muted">Exited: {{ \Carbon\Carbon::parse($employee->exit_date)->format('d-M-Y') }}</div>
-                                @endif
-                            @else
+                                <?php if($employee->exit_date): ?>
+                                    <div class="fs-11 text-muted">Exited: <?php echo e(\Carbon\Carbon::parse($employee->exit_date)->format('d-M-Y')); ?></div>
+                                <?php endif; ?>
+                            <?php else: ?>
                                 <span class="badge bg-success mb-1">Active</span>
                                 <!-- Mock confirmation pending check -->
-                                @if(rand(0, 3) == 1)
+                                <?php if(rand(0, 3) == 1): ?>
                                     <br><a href="#" class="badge bg-info mt-1">Confirm</a>
-                                @endif
-                            @endif
+                                <?php endif; ?>
+                            <?php endif; ?>
                         </td>
                         <td>
                             <div class="d-flex align-items-center gap-1">
-                                <a href="{{ route('employee.profile.basic', ['id' => $employee->id]) }}" class="btn btn-soft-primary btn-sm d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 30px; border-radius: 4px;" title="Edit">
+                                <a href="<?php echo e(route('employee.profile.basic', ['id' => $employee->id])); ?>" class="btn btn-soft-primary btn-sm d-inline-flex align-items-center justify-content-center" style="width: 30px; height: 30px; border-radius: 4px;" title="Edit">
                                     <i class="ri-pencil-fill"></i>
                                 </a>
                                 <div class="dropdown">
@@ -182,15 +183,16 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
-                                            <a href="{{ route('employee.statement', ['id' => $employee->id]) }}" class="dropdown-item">
+                                            <a href="<?php echo e(route('employee.statement', ['id' => $employee->id])); ?>" class="dropdown-item">
                                                 <i class="ri-file-download-line me-2"></i> Download Statement
                                             </a>
                                         </li>
                                         <li>
-                                            <form action="{{ route('employee.toggle-status', ['id' => $employee->id]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="dropdown-item text-{{ $employee->status === 'inactive' ? 'success' : 'danger' }}">
-                                                    <i class="ri-shut-down-line me-2"></i> {{ $employee->status === 'inactive' ? 'Activate' : 'Deactivate' }}
+                                            <form action="<?php echo e(route('employee.toggle-status', ['id' => $employee->id])); ?>" method="POST">
+                                                <?php echo csrf_field(); ?>
+                                                <button type="submit" class="dropdown-item text-<?php echo e($employee->status === 'inactive' ? 'success' : 'danger'); ?>">
+                                                    <i class="ri-shut-down-line me-2"></i> <?php echo e($employee->status === 'inactive' ? 'Activate' : 'Deactivate'); ?>
+
                                                 </button>
                                             </form>
                                         </li>
@@ -199,11 +201,11 @@
                             </div>
                         </td>
                     </tr>
-                    @empty
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <tr>
                         <td colspan="8" class="text-center py-4 text-muted">No employees found.</td>
                     </tr>
-                    @endforelse
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -212,9 +214,9 @@
 
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -244,4 +246,5 @@ $(document).ready(function () {
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/XAMPP/xamppfiles/htdocs/SomyaHRMS/resources/views/admin/employee/index.blade.php ENDPATH**/ ?>

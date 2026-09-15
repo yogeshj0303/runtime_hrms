@@ -87,18 +87,18 @@
 
     <!-- Dashboard -->
     <li class="nav-item">
-        <a class="nav-link menu-link <?php echo e(request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'active' : ''); ?>" href="#sidebarDashboard"
+        <a class="nav-link menu-link <?php echo e(request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'active' : ''); ?>" href="#sidebarDashboard"
             data-bs-toggle="collapse" role="button"
-            aria-expanded="<?php echo e(request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'true' : 'false'); ?>"
+            aria-expanded="<?php echo e(request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'true' : 'false'); ?>"
             aria-controls="sidebarDashboard">
             <i class="ri-dashboard-line"></i>
             <span>Dashboards</span>
         </a>
 
-        <div class="collapse menu-dropdown <?php echo e(request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'show' : ''); ?>" id="sidebarDashboard">
+        <div class="collapse menu-dropdown <?php echo e(request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'show' : ''); ?>" id="sidebarDashboard">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="<?php echo e(route('business.dashboard')); ?>" class="nav-link <?php echo e(request()->routeIs('business.dashboard') ? 'active' : ''); ?>">
+                    <a href="<?php echo e(route('root')); ?>" class="nav-link <?php echo e(request()->routeIs('root') ? 'active' : ''); ?>">
                         Overview
                     </a>
                 </li>

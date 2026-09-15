@@ -59,4 +59,20 @@
     .progress-bar {
         background-color: var(--vz-primary);
     }
+    
+    /* Universal Validation Error Message Styling */
+    .invalid-feedback.dynamic-error,
+    .invalid-feedback {
+        font-size: 12px !important;
+        color: #dc3545 !important;
+        margin-top: 4px !important;
+        display: block !important;
+        font-weight: 500 !important;
+    }
+    .form-control.is-invalid,
+    .form-select.is-invalid,
+    .salary-input-box.is-invalid,
+    .form-check-input.is-invalid {
+        border-color: #dc3545 !important;
+    }
 </style>

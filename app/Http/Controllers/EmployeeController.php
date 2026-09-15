@@ -13,6 +13,13 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $businessId = Auth::user()->active_business_id;
+        if (!$businessId) {
+            $business = \App\Models\Business::where('user_id', Auth::id())->first();
+            if ($business) {
+                $businessId = $business->id;
+                Auth::user()->update(['active_business_id' => $businessId]);
+            }
+        }
         $query = \App\Models\Employee::with(['workProfiles' => function($q) {
             $q->where('is_current', true)->with('designation', 'department', 'location', 'costCenter');
         }]);

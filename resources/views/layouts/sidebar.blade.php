@@ -87,18 +87,18 @@
 
     <!-- Dashboard -->
     <li class="nav-item">
-        <a class="nav-link menu-link {{ request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'active' : '' }}" href="#sidebarDashboard"
+        <a class="nav-link menu-link {{ request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'active' : '' }}" href="#sidebarDashboard"
             data-bs-toggle="collapse" role="button"
-            aria-expanded="{{ request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'true' : 'false' }}"
+            aria-expanded="{{ request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'true' : 'false' }}"
             aria-controls="sidebarDashboard">
             <i class="ri-dashboard-line"></i>
             <span>Dashboards</span>
         </a>
 
-        <div class="collapse menu-dropdown {{ request()->routeIs('business.dashboard') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'show' : '' }}" id="sidebarDashboard">
+        <div class="collapse menu-dropdown {{ request()->routeIs('root') || request()->routeIs('dashboards.*') || request()->routeIs('org-chart') ? 'show' : '' }}" id="sidebarDashboard">
             <ul class="nav nav-sm flex-column">
                 <li class="nav-item">
-                    <a href="{{ route('business.dashboard') }}" class="nav-link {{ request()->routeIs('business.dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('root') }}" class="nav-link {{ request()->routeIs('root') ? 'active' : '' }}">
                         Overview
                     </a>
                 </li>

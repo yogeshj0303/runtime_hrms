@@ -57,10 +57,17 @@ public function root(\Illuminate\Http\Request $request)
   
 
     if (!$business) {
+        $business = Business::where('user_id', $user->id)->first();
+        if (!$business) {
+            $business = Business::create([
+                'user_id' => $user->id,
+                'business_name' => 'Main Organization',
+                'status' => 'active',
+            ]);
+        }
         $user->update([
-            'active_business_id' => null
+            'active_business_id' => $business->id
         ]);
-        return redirect()->route('business.dashboard');
     }
 
     $business_id = $business->id;
