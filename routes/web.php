@@ -716,6 +716,7 @@ Route::prefix('capture')->group(function () {
            // BG Check
            Route::get('/bg-check', [\App\Http\Controllers\Employee\Profile\EmployeeBgCheckController::class, 'index'])->name('bg-check');
            Route::post('/bg-check', [\App\Http\Controllers\Employee\Profile\EmployeeBgCheckController::class, 'store'])->name('bg-check.store');
+           Route::delete('/bg-check/{id}', [\App\Http\Controllers\Employee\Profile\EmployeeBgCheckController::class, 'destroy'])->name('bg-check.destroy');
            
            // Deactivate
            Route::get('/deactivate', [\App\Http\Controllers\Employee\Profile\DeactivateController::class, 'index'])->name('deactivate');

@@ -19,6 +19,7 @@
                 <th>Status</th>
                 <th>Remarks</th>
                 <th>Date</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +38,17 @@
                 </td>
                 <td class="text-muted small">{{ $check->remarks ?? '-' }}</td>
                 <td class="text-muted fs-13">{{ $check->created_at ? $check->created_at->format('d M Y') : '-' }}</td>
+                <td class="text-end">
+                    <a href="javascript:void(0)" class="text-danger" onclick="confirmDelete(event, 'delete-bg-check-{{ $check->id }}', 'Are you sure you want to delete this background check?');" title="Delete Check"><i class="ri-delete-bin-line"></i></a>
+                    <form id="delete-bg-check-{{ $check->id }}" action="{{ route('employee.profile.bg-check.destroy', $check->id) }}" method="POST" class="d-none">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </td>
             </tr>
             @empty
             <tr>
-                <td colspan="5" class="text-center text-muted p-5">
+                <td colspan="6" class="text-center text-muted p-5">
                     <i class="ri-shield-check-line" style="font-size: 54px; color: #cbd5e1;"></i>
                     <h6 class="mt-3 fw-bold text-secondary">No background checks found</h6>
                     <p class="mb-0 text-muted small">Add a background check to verify employee credentials.</p>
@@ -55,8 +63,10 @@
 <div class="modal fade" id="addBgCheckModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow">
-            <form action="{{ route('employee.profile.bg-check.store', $employee->id) }}" method="POST">
+            <form action="{{ route('employee.profile.bg-check.store') }}" method="POST">
                 @csrf
+                <input type="hidden" name="employee_id" value="{{ $employee->id }}">
+                <input type="hidden" name="id" value="{{ $employee->id }}">
                 <div class="modal-header">
                     <h5 class="modal-title fw-bold fs-15">Add Background Check</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -98,3 +108,4 @@
     </div>
 </div>
 @endsection
+
