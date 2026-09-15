@@ -1,0 +1,502 @@
+.daily-attendance-page{
+    padding:22px 24px 35px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#111827;
+    font-size:13px;
+}
+
+/* common text clarity */
+.daily-attendance-page *{
+    box-sizing:border-box;
+}
+
+.daily-attendance-page,
+.daily-attendance-page button,
+.daily-attendance-page input,
+.daily-attendance-page select{
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.breadcrumb-text{
+    font-size:12px;
+    line-height:18px;
+    color:#7b8494;
+    margin-bottom:8px;
+}
+
+/* HEADER */
+
+.page-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom:1px solid #e5e7eb;
+    padding-bottom:14px;
+    margin-bottom:16px;
+    gap:15px;
+}
+
+.page-title{
+    margin:0;
+    font-size:18px;
+    line-height:25px;
+    font-weight:700;
+    color:#111827;
+}
+
+.page-subtitle{
+    margin:5px 0 0;
+    font-size:13px;
+    line-height:21px;
+    color:#6b7280;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+    flex-shrink:0;
+}
+
+.option-btn,
+.help-btn{
+    height:33px;
+    border:0;
+    border-radius:5px;
+    padding:0 14px;
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+.option-btn{background:#2563eb;}
+.help-btn{background:#10b981;}
+
+/* FILTER */
+
+.filter-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+}
+
+.filter-box{
+    width:165px;
+}
+
+.filter-box label{
+    display:block;
+    font-size:12px;
+    line-height:18px;
+    font-weight:600;
+    color:#4b5563;
+    margin-bottom:5px;
+}
+
+.filter-box select,
+.employee-select{
+    width:100%;
+    height:37px;
+    border:1px solid #d8dee8;
+    border-radius:5px;
+    padding:0 12px;
+    background:#fff;
+    font-size:13px;
+    font-weight:500;
+    color:#111827;
+    outline:none;
+}
+
+/* RADIO */
+
+.radio-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    margin:10px 0 16px;
+    font-size:13px;
+    line-height:20px;
+    color:#111827;
+}
+
+.radio-row label{
+    display:flex;
+    gap:6px;
+    align-items:center;
+    margin:0;
+    white-space:nowrap;
+    font-weight:500;
+}
+
+.radio-row input{
+    accent-color:#2563eb;
+}
+
+/* ACTION */
+
+.action-row{
+    display:flex;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.date-btn{
+    width:42px;
+    height:37px;
+    border:0;
+    background:#65758d;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.date-input{
+    width:132px;
+    height:37px;
+    border:1px solid #d8dee8;
+    border-left:0;
+    border-right:0;
+    text-align:center;
+    font-size:13px;
+    font-weight:600;
+    color:#111827;
+    outline:none;
+}
+
+.employee-select{
+    width:210px;
+    margin-left:10px;
+    border-radius:5px 0 0 5px;
+}
+
+.view-btn{
+    height:37px;
+    width:78px;
+    border:0;
+    background:#65758d;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    border-radius:0 5px 5px 0;
+    cursor:pointer;
+}
+
+/* CARD */
+
+.attendance-card{
+    border:1px solid #d6dde8;
+    border-radius:10px;
+    background:#fff;
+    margin-bottom:12px;
+    padding:16px 18px;
+    box-shadow:0 4px 14px rgba(15,23,42,.06);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+    border-bottom:1px solid #edf0f4;
+    padding-bottom:12px;
+    margin-bottom:14px;
+}
+
+.emp-title{
+    font-size:14px;
+    line-height:21px;
+    font-weight:700;
+    color:#111827;
+}
+
+.emp-title span{
+    font-weight:500;
+    color:#374151;
+}
+
+/* SMALL TOP TEXT CLEAR */
+
+.meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:10px 18px;
+    font-size:12px;
+    line-height:19px;
+    color:#111827;
+}
+
+.meta-row span{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    white-space:nowrap;
+    font-weight:600;
+}
+
+.meta-row i{
+    font-size:15px;
+    flex-shrink:0;
+}
+
+.meta-location{color:#ec4899;}
+.meta-cost{color:#f59e0b;}
+.meta-dept{color:#3b82f6;}
+
+/* CARD BODY */
+
+.card-body-row{
+    display:grid;
+    grid-template-columns:minmax(240px,270px) minmax(380px,1fr) minmax(150px,170px) 72px;
+    align-items:center;
+    gap:18px;
+}
+
+.date-link{
+    display:inline-block;
+    color:#2563eb;
+    font-size:13px;
+    line-height:20px;
+    margin-bottom:5px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+.absent-text{
+    font-size:13px;
+    line-height:19px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:4px;
+}
+
+.rule-text{
+    font-size:12px;
+    color:#374151;
+    line-height:20px;
+    font-weight:500;
+    white-space:normal;
+}
+
+.shift-title{
+    text-align:center;
+    font-size:12px;
+    line-height:18px;
+    color:#111827;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.timeline-wrap{
+    width:100%;
+    min-width:0;
+}
+
+.timeline-labels{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    font-size:12px;
+    line-height:18px;
+    color:#4b5563;
+    margin-bottom:5px;
+    gap:8px;
+    font-weight:600;
+}
+
+.timeline-labels span{
+    white-space:nowrap;
+}
+
+.timeline-bar{
+    height:7px;
+    display:flex;
+    border-radius:10px;
+    overflow:hidden;
+    background:#eef2f7;
+}
+
+.bar-green{background:#20c7a4; flex:1.1;}
+.bar-blue{background:#3478f6; flex:4.8;}
+.bar-orange{background:#f4c48f; flex:1.1;}
+
+.punch-time{
+    margin-top:7px;
+    font-size:12px;
+    line-height:19px;
+    color:#2563eb;
+    font-weight:600;
+    white-space:normal;
+}
+
+.punch-time i{
+    color:#f4b679;
+    font-size:12px;
+}
+
+.in-time{
+    font-size:13px;
+    line-height:20px;
+    color:#374151;
+    text-align:center;
+    font-weight:600;
+    white-space:normal;
+}
+
+.in-time b{
+    color:#2563eb;
+    font-weight:700;
+}
+
+.card-actions{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+}
+
+.round-btn{
+    width:27px;
+    height:27px;
+    border:0;
+    border-radius:50%;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:14px;
+    flex-shrink:0;
+}
+
+.round-btn.blue{background:#2563eb;}
+.round-btn.gray{background:#64748b;}
+
+/* PAGINATION */
+
+.pagination-row{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-top:20px;
+}
+
+.page-btn,
+.page-arrow{
+    min-width:36px;
+    height:36px;
+    border:1px solid #d8dee8;
+    background:#fff;
+    color:#64748b;
+    font-size:13px;
+    font-weight:700;
+    border-radius:7px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.page-btn:hover,
+.page-arrow:hover{
+    background:#eef5ff;
+    border-color:#2563eb;
+    color:#2563eb;
+}
+
+.page-btn.active{
+    background:#2563eb;
+    color:#fff;
+    border-color:#2563eb;
+}
+
+.page-arrow:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1199px){
+    .card-body-row{
+        grid-template-columns:240px 1fr 150px 65px;
+        gap:14px;
+    }
+}
+
+@media(max-width:991px){
+    .page-head,
+    .card-top{
+        flex-direction:column;
+        gap:10px;
+        align-items:flex-start;
+    }
+
+    .meta-row{
+        justify-content:flex-start;
+    }
+
+    .card-body-row{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .shift-title,
+    .in-time{
+        text-align:left;
+    }
+
+    .card-actions{
+        justify-content:flex-start;
+    }
+}
+
+@media(max-width:768px){
+    .daily-attendance-page{
+        padding:15px;
+    }
+
+    .filter-box,
+    .employee-select{
+        width:100%;
+        margin-left:0;
+        border-radius:5px;
+    }
+
+    .action-row{
+        flex-wrap:wrap;
+        gap:8px;
+    }
+
+    .date-input{
+        border:1px solid #d8dee8;
+        border-radius:5px;
+    }
+
+    .date-btn,
+    .view-btn{
+        border-radius:5px;
+    }
+
+    .view-btn{
+        width:100%;
+    }
+
+    .top-actions{
+        flex-wrap:wrap;
+    }
+
+    .timeline-labels{
+        font-size:11px;
+        gap:4px;
+    }
+}

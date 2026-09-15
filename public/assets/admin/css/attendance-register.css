@@ -1,0 +1,301 @@
+.attendance-register-page{
+    padding:18px 18px 40px;
+    background:#fff;
+    min-height:100vh;
+    font-family:Arial, sans-serif;
+}
+
+.breadcrumb-text{
+    font-size:11px;
+    color:#7b8794;
+    margin-bottom:10px;
+}
+
+.top-head{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    margin-bottom:18px;
+}
+
+.page-title{
+    margin:0 0 5px;
+    font-size:16px;
+    font-weight:700;
+    color:#111827;
+}
+
+.page-subtitle{
+    margin:0;
+    font-size:12px;
+    color:#6b7280;
+}
+
+.help-btn{
+    border:0;
+    background:#10b981;
+    color:#fff;
+    padding:8px 13px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.filter-area{
+    width:520px;
+    margin-bottom:18px;
+}
+
+.filter-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+}
+
+.filter-box label{
+    display:block;
+    font-size:11px;
+    color:#6b7280;
+    margin-bottom:5px;
+}
+
+.filter-box select,
+.filter-box input{
+    width:100%;
+    height:34px;
+    border:1px solid #d9e2ec;
+    border-radius:5px;
+    padding:0 10px;
+    font-size:12px;
+    color:#374151;
+    outline:none;
+    background:#fff;
+}
+
+.action-row{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.view-btn,
+.download-btn{
+    border:0;
+    height:34px;
+    padding:0 18px;
+    border-radius:5px;
+    background:linear-gradient(135deg, #133C5A, #1d567f);
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover,
+.download-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(19, 60, 90, 0.2);
+}
+
+.report-options{
+    border:1px solid #d0d7de;
+    border-radius:8px;
+    padding:16px 18px;
+    width:calc(100% - 260px);
+    min-height:85px;
+    margin-bottom:12px;
+}
+
+.report-options h5{
+    margin:0 0 12px;
+    font-size:13px;
+    color:#111827;
+    font-weight:700;
+}
+
+.radio-row,
+.switch-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+}
+
+.radio-row label,
+.toggle-line{
+    font-size:12px;
+    color:#374151;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+}
+
+.radio-row input{
+    accent-color:#3b82f6;
+}
+
+.toggle-line input{
+    display:none;
+}
+
+.toggle{
+    width:32px;
+    height:18px;
+    background:#cbd5e1;
+    border-radius:20px;
+    position:relative;
+    display:inline-block;
+}
+
+.toggle::before{
+    content:"";
+    width:14px;
+    height:14px;
+    background:#fff;
+    border-radius:50%;
+    position:absolute;
+    top:2px;
+    left:2px;
+    transition:.2s;
+}
+
+.toggle-line input:checked + .toggle{
+    background:#3b82f6;
+}
+
+.toggle-line input:checked + .toggle::before{
+    left:16px;
+}
+
+.short-info{
+    font-size:12px;
+    color:#6b7280;
+    margin:8px 0 12px;
+}
+
+.report-result-box{
+    width:100%;
+    height:315px;
+    border:1px solid #d0d7de;
+    border-radius:8px;
+    background:#fff;
+}
+
+@media(max-width:900px){
+    .filter-area{
+        width:100%;
+    }
+
+    .filter-grid{
+        grid-template-columns:1fr;
+    }
+
+    .report-options{
+        width:100%;
+    }
+
+    .top-head{
+        gap:12px;
+        flex-direction:column;
+    }
+}
+
+/* --- Print Styles --- */
+@media print {
+    @page { 
+        size: landscape; 
+        margin: 5mm; 
+    }
+
+    body * {
+        visibility: hidden;
+    }
+    
+    .attendance-register-page, 
+    .attendance-register-page * {
+        visibility: visible;
+    }
+
+    .attendance-register-page {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background: #fff;
+    }
+
+    /* Hide elements that shouldn't be printed */
+    .breadcrumb-text,
+    .top-head,
+    form,
+    .filter-area,
+    .report-options,
+    .help-btn,
+    .view-btn,
+    .download-btn,
+    .short-info {
+        display: none !important;
+    }
+
+    /* Expand the table to show all rows/cols */
+    .report-result-box, 
+    .table-responsive {
+        max-height: none !important;
+        overflow: visible !important;
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+
+    /* Style the table for printing */
+    .attendance-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed; /* Force it to fit */
+        word-wrap: break-word;
+    }
+
+    .attendance-table th, 
+    .attendance-table td {
+        border: 1px solid #000 !important;
+        padding: 2px !important;
+        color: #000 !important;
+        background: #fff !important; 
+        font-size: 7px !important; /* Extremely small to fit 31 days */
+        text-align: center;
+        overflow: hidden;
+    }
+
+    /* Keep some basic styling for badges */
+    .badge {
+        border: none !important;
+        color: #000 !important;
+        background: transparent !important;
+        font-weight: bold;
+        padding: 0 !important;
+        font-size: 8px !important;
+    }
+    
+    /* Ensure page breaks don't cut rows */
+    tr {
+        page-break-inside: avoid;
+    }
+
+    /* Provide a title for the printout */
+    .attendance-register-page::before {
+        content: "Attendance Register Report";
+        display: block;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+        visibility: visible;
+    }
+}

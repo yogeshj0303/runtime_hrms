@@ -1,0 +1,266 @@
+
+body{
+    background:#f6f8fb;
+}
+
+.setup-page{
+    padding:0;
+}
+
+/* =========================
+HEADER
+========================= */
+
+.setup-top{
+    border-bottom:1px solid #133C5A;
+    padding-bottom:15px;
+    margin-bottom:12px;
+}
+
+.breadcrumb{
+    font-size:14px;
+    color:#8a94a6;
+    margin-bottom:12px;
+}
+
+.title-row{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+}
+
+.title-row i{
+    font-size:28px;
+}
+
+.title-row h2{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+}
+
+.title-row p{
+    margin:4px 0 0;
+    color:#667085;
+}
+
+/* =========================
+LAYOUT
+========================= */
+
+.setup-wrap{
+    display:flex;
+    gap:28px;
+    align-items:flex-start;
+    padding-bottom: 15px;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    width:290px;
+    min-width:290px;
+    background:#fff;
+    border:1px solid #133C5A;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.search{
+    padding:10px;
+}
+
+.search-box{
+    display:flex;
+    border:1px solid #133C5A;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    flex:1;
+    padding:12px;
+    font-size:14px;
+}
+
+.search-box span{
+    width:54px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#8a94a6;
+}
+
+.menu{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.menu li{
+    height:46px;
+    padding:0 14px;
+    border-top:1px solid #edf2f7;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#000;
+    cursor:pointer;
+    transition:.3s;
+    font-size:14px;
+}
+
+.menu li:hover{
+    background:#f5f8ff;
+}
+
+.menu li.active{
+    background:#133C5A !important;
+    color:#fff;
+    font-weight:600;
+}
+
+/* =========================
+CARDS GRID
+========================= */
+
+.cards{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:18px;
+    align-items:stretch;
+}
+
+/* =========================
+CARD
+========================= */
+
+.cardx{
+    background:#fff;
+    border:1px solid #d9e2ec;
+    border-radius:16px;
+    min-height:240px;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    transition:.3s;
+}
+
+.cardx:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.card-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+ICON
+========================= */
+
+.cardx .icon{
+    height:50px;
+    display:flex;
+    align-items:center;
+    font-size:40px;
+    color:#133C5A;
+    margin-bottom:12px;
+}
+
+/* =========================
+TITLE
+========================= */
+
+.cardx h4{
+    font-size:17px;
+    font-weight:700;
+    color:#111827;
+    margin:0 0 10px;
+    min-height:48px;
+    line-height:24px;
+}
+
+/* =========================
+DESCRIPTION
+========================= */
+
+.cardx p{
+    flex:1;
+    font-size:14px;
+    color:#333;
+    line-height:1.7;
+    margin:0;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn-open{
+    margin-top:20px;
+    height:36px;
+    width:100%;
+    border:none;
+    border-radius:6px;
+    background:#133C5A !important;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-open:hover{
+    background:#fff ;
+    color:#133C5A;
+}
+
+/* =========================
+FLOATING CHAT
+========================= */
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1400px){
+
+    .cards{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:1200px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:768px){
+
+    .setup-wrap{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-width:100%;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+}

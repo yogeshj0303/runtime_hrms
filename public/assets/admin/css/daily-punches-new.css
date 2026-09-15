@@ -1,0 +1,527 @@
+.daily-punches-page{
+    padding:22px 24px 35px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.breadcrumb-text{
+    font-size:12px;
+    color:#8b95a5;
+    margin-bottom:8px;
+}
+
+.page-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:16px;
+}
+
+.page-title{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+}
+
+.page-subtitle{
+    margin:4px 0 0;
+    font-size:13px;
+    color:#6b7280;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+}
+
+.option-btn,
+.help-btn{
+    height:32px;
+    border:0;
+    border-radius:5px;
+    padding:0 14px;
+    color:#fff;
+    font-size:12px;
+}
+
+.option-btn{
+    background:#3b82f6;
+}
+
+.help-btn{
+    background:#10b981;
+}
+
+
+/* ================= FILTER ================= */
+
+.filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.filter-box{
+    width:170px;
+}
+
+.filter-box label{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:5px;
+}
+
+.filter-box select{
+    width:100%;
+    height:36px;
+    border:1px solid #d9dee7;
+    border-radius:5px;
+    padding:0 12px;
+    font-size:13px;
+}
+
+
+/* ================= RADIO ================= */
+
+.radio-row{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:12px 0 15px;
+    font-size:13px;
+}
+
+.radio-row label{
+    display:flex;
+    gap:5px;
+    align-items:center;
+}
+
+.radio-row input{
+    accent-color:#3b82f6;
+}
+
+
+/* ================= ACTION ================= */
+
+.action-row{
+    display:flex;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.date-btn{
+    width:38px;
+    height:36px;
+    border:0;
+    background:#718299;
+    color:#fff;
+}
+
+.date-input{
+    width:130px;
+    height:36px;
+    border:1px solid #d9dee7;
+    text-align:center;
+    font-size:13px;
+}
+
+.employee-input{
+    width:190px;
+    height:36px;
+    margin-left:8px;
+    border:1px solid #d9dee7;
+    padding:0 12px;
+}
+
+.view-btn{
+    width:75px;
+    height:36px;
+    border:0;
+    background:#718299;
+    color:white;
+}
+
+
+/* ================= TABLE ================= */
+
+.punch-table-card{
+    width:100%;
+    background:#fff;
+    border:1px solid #dce2eb;
+    border-radius:8px;
+    overflow-x:auto;
+    overflow-y:hidden;
+}
+
+
+.punch-table{
+    width:100%;
+    min-width:1050px;
+    border-collapse:collapse;
+    table-layout:auto;
+    margin:0;
+}
+
+
+.punch-table thead th{
+
+    background:#f4f6f9;
+    color:#111827;
+
+    font-size:13px;
+    font-weight:700;
+
+    padding:12px 15px;
+
+    border-bottom:1px solid #dce2eb;
+
+    white-space:nowrap;
+    vertical-align:middle;
+}
+
+
+.punch-table tbody td{
+
+    padding:12px 15px;
+
+    font-size:13px;
+    color:#111827;
+
+    border-bottom:1px solid #edf0f4;
+
+    vertical-align:middle;
+
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+
+    line-height:20px;
+}
+
+
+.punch-table tbody tr:hover{
+    background:#fafafa;
+}
+
+
+/* SAME COLUMN WIDTH */
+
+.punch-table th:nth-child(1),
+.punch-table td:nth-child(1){
+    width:60px;
+    text-align:center;
+}
+
+
+.punch-table th:nth-child(2),
+.punch-table td:nth-child(2){
+
+    width:230px;
+    min-width:230px;
+}
+
+
+.punch-table th:nth-child(3),
+.punch-table td:nth-child(3){
+
+    width:170px;
+    min-width:170px;
+}
+
+
+.punch-table th:nth-child(4),
+.punch-table td:nth-child(4),
+
+.punch-table th:nth-child(5),
+.punch-table td:nth-child(5),
+
+.punch-table th:nth-child(6),
+.punch-table td:nth-child(6){
+
+    width:130px;
+    min-width:130px;
+    text-align:center;
+}
+
+
+.punch-table th:nth-child(7),
+.punch-table td:nth-child(7){
+
+    width:150px;
+    min-width:150px;
+    text-align:center;
+}
+
+
+.punch-table th:nth-child(8),
+.punch-table td:nth-child(8){
+
+    width:130px;
+    min-width:130px;
+    text-align:center;
+}
+
+
+/* EMPLOYEE TEXT */
+
+.emp-name{
+
+    display:block;
+
+    font-size:13px;
+    font-weight:700;
+
+    color:#111827;
+
+    line-height:18px;
+
+    white-space:normal;
+}
+
+
+.emp-code{
+
+    display:block;
+
+    font-size:12px;
+
+    color:#6b7280;
+
+    line-height:17px;
+}
+
+
+/* STATUS */
+
+.badge-soft-success,
+.badge-soft-warning,
+.badge-soft-danger{
+
+    display:inline-flex;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+
+.badge-soft-success{
+
+    background:#dcfce7;
+
+    color:#15803d;
+}
+
+
+.badge-soft-warning{
+
+    background:#fef3c7;
+
+    color:#b45309;
+}
+
+
+.badge-soft-danger{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+}
+
+
+
+/* BUTTON */
+
+.table-action-btn{
+
+    height:30px;
+
+    padding:0 12px;
+
+    border:1px solid #dce2eb;
+
+    border-radius:6px;
+
+    background:#fff;
+
+    font-size:12px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+}
+
+
+.table-action-btn:hover{
+
+    background:#eef5ff;
+
+    color:#3b82f6;
+}
+
+
+/* ================= LEGEND ================= */
+
+
+.legend-title{
+
+    margin-top:15px;
+
+    font-size:12px;
+
+    color:#374151;
+}
+
+
+.legend-row{
+
+    margin-top:6px;
+
+    background:#e5e7eb;
+
+    padding:8px;
+
+    border-radius:6px;
+
+    display:grid;
+
+    grid-template-columns:repeat(13,1fr);
+
+    gap:8px;
+}
+
+
+.legend-row span{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    height:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:4px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+}
+
+
+/* ================= PAGINATION ================= */
+
+
+.pagination-row{
+
+    margin-top:24px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+}
+
+
+.page-btn,
+.page-arrow{
+
+    width:34px;
+
+    height:34px;
+
+    border:1px solid #d8dee8;
+
+    background:white;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+}
+
+
+.page-btn.active{
+
+    background:#3b82f6;
+
+    color:white;
+
+    border-color:#3b82f6;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+
+@media(max-width:991px){
+
+    .page-head{
+
+        flex-direction:column;
+
+        gap:10px;
+    }
+
+
+    .legend-row{
+
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+
+@media(max-width:768px){
+
+    .daily-punches-page{
+
+        padding:15px;
+    }
+
+
+    .filter-box,
+    .employee-input{
+
+        width:100%;
+    }
+
+
+    .action-row{
+
+        flex-wrap:wrap;
+
+        gap:8px;
+    }
+
+
+    .punch-table{
+
+        min-width:900px;
+    }
+
+
+    .legend-row{
+
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}

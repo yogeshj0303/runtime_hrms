@@ -1,0 +1,105 @@
+.manual-attendance-page{
+    padding:26px 28px 45px;
+    background:#f8fafc;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#111827;
+    min-height:calc(100vh - 70px);
+}
+
+.filter-row{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(150px, 1fr));
+    gap:12px;
+    margin-bottom:18px;
+    max-width:640px;
+}
+
+.action-row{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+    clear:both;
+}
+
+.table-card{
+    background:#fff;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 8px 22px rgba(15,23,42,.07);
+    margin-top:0;
+    width:100%;
+}
+
+.manual-table{
+    width:100%;
+    min-width:1080px;
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+.manual-table th,
+.manual-table td{
+    border-bottom:1px solid #e5e7eb;
+    padding:10px 12px;
+    font-size:12px;
+    vertical-align:middle;
+}
+
+.manual-table th:first-child,
+.manual-table td:first-child{
+    width:45px;
+}
+
+.manual-table th:nth-child(2),
+.manual-table td:nth-child(2){
+    width:230px;
+}
+
+.month-btn{
+    width:38px;
+    min-width:38px;
+    height:36px;
+    padding:0;
+}
+
+.month-input{
+    width:105px;
+    min-width:105px;
+}
+
+.employee-select{
+    width:160px;
+    min-width:160px;
+}
+
+.view-btn{
+    min-width:64px;
+}
+
+.att-input{
+    width:100%;
+    max-width:82px;
+    height:28px;
+    display:block;
+    margin:auto;
+    border:1px solid #cfd6df;
+    border-radius:5px;
+    padding:0 7px;
+    text-align:right;
+    font-size:12px;
+    font-weight:700;
+    outline:none;
+}
+
+.pagination-row{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+    padding:12px 12px 0;
+    margin-bottom:25px;
+    font-size:12px;
+}

@@ -1,0 +1,215 @@
+.employee-loans-page{
+    padding:20px;
+    background:#fff;
+}
+
+.breadcrumb-text{
+    font-size:12px;
+    color:#8b95a5;
+    margin-bottom:10px;
+}
+
+.page-head{
+    margin-bottom:18px;
+}
+
+.page-title{
+    margin:0;
+    font-size:22px;
+    font-weight:600;
+    color:#222;
+}
+
+.page-subtitle{
+    margin:4px 0 0;
+    font-size:13px;
+    color:#777;
+}
+
+.filter-row,
+.loan-filter-row,
+.action-row{
+    display:flex;
+    align-items:flex-end;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+}
+
+.filter-box{
+    width:220px;
+}
+
+.date-box{
+    width:150px;
+}
+
+.filter-box label,
+.date-box label,
+.report-options > label{
+    display:block;
+    font-size:12px;
+    margin-bottom:4px;
+    color:#666;
+}
+
+.filter-box select,
+.date-box input,
+.employee-search{
+    width:100%;
+    height:36px;
+    border:1px solid #d7dce3;
+    border-radius:4px;
+    padding:0 10px;
+    background:#fff;
+    font-size:13px;
+}
+
+.employee-search{
+    width:220px;
+}
+
+.report-options{
+    min-width:300px;
+}
+
+.radio-group{
+    height:36px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.radio-group label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:13px;
+    color:#333;
+    margin:0;
+}
+
+.view-btn,
+.excel-btn,
+.pdf-btn{
+    height:36px;
+    border:none;
+    border-radius:4px;
+    padding:0 18px;
+    background:linear-gradient(135deg, #133C5A, #1d567f);
+    color:#fff;
+    font-size:13px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(19, 60, 90, 0.1);
+}
+
+.view-btn:hover,
+.excel-btn:hover,
+.pdf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(19, 60, 90, 0.2);
+    filter: brightness(1.1);
+}
+
+.view-btn:active,
+.excel-btn:active,
+.pdf-btn:active {
+    transform: translateY(0);
+}
+
+.loans-table-wrap{
+    width:100%;
+    overflow-x:auto;
+    margin-top:10px;
+}
+
+.loans-table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    font-size:11px;
+}
+
+.loans-table thead th{
+    height:32px;
+    padding:8px 10px;
+    text-align:center;
+    font-size:11px;
+    font-weight:500;
+    color:#222;
+    background:#fbfcfe;
+    border-top:1px solid #d7dce3;
+    border-bottom:1px solid #d7dce3;
+    white-space:nowrap;
+}
+
+.loans-table thead th:first-child{
+    border-left:1px solid #d7dce3;
+    border-radius:8px 0 0 8px;
+}
+
+.loans-table thead th:last-child{
+    border-right:1px solid #d7dce3;
+    border-radius:0 8px 8px 0;
+}
+
+.loans-table tbody td{
+    padding:12px 10px;
+    text-align:center;
+    font-size:12px;
+    color:#333;
+    border-bottom:1px solid #eef1f5;
+    transition: background 0.2s ease;
+}
+
+.loans-table tbody tr:not(.schedule-row):hover td {
+    background: #fbfcfe;
+}
+
+.schedule-row td {
+    padding: 0;
+    background: #f8f9fa;
+    border-bottom: 2px solid #d7dce3;
+}
+
+.schedule-box {
+    padding: 15px;
+    text-align: left;
+}
+
+.schedule-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #dee2e6;
+    padding: 6px;
+    text-align: left;
+    font-size: 11px;
+}
+
+.schedule-table th {
+    background: #e9ecef;
+}
+
+@media(max-width:768px){
+    .filter-box,
+    .date-box,
+    .employee-search,
+    .report-options{
+        width:100%;
+        min-width:100%;
+    }
+
+    .radio-group{
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        height:auto;
+    }
+}

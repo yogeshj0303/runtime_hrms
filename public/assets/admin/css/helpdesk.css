@@ -1,0 +1,72 @@
+
+    .helpdesk-header{
+    background:#fff;
+    border:1px solid #e9ecef;
+    border-radius:8px;
+    padding:18px 20px;
+    margin-bottom:15px;
+}
+
+.breadcrumb-section{
+    font-size:12px;
+    color:#878a99;
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-bottom:10px;
+}
+
+.header-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.header-content h4{
+    margin:0;
+    font-size:18px;
+    font-weight:600;
+    color:#212529;
+}
+
+.header-content p{
+    margin-top:4px;
+    margin-bottom:0;
+    color:#878a99;
+    font-size:13px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.btn-add{
+    border:none;
+    background:#3577f1;
+    color:#fff;
+    padding:7px 14px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.btn-help{
+    border:none;
+    background:#0ab39c;
+    color:#fff;
+    padding:7px 14px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+.btn-add:hover{
+    background:#2f6fe4;
+}
+
+.btn-help:hover{
+    background:#099885;
+}

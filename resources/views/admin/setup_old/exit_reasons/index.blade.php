@@ -1,0 +1,138 @@
+@extends('layouts.master')
+
+@section('content')
+
+<link rel="stylesheet" href="{{ asset('assets/admin/css/exit.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+
+<div class="helpdesk-header">
+
+    <div class="breadcrumb-section">
+        <span>Setup</span>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>Master Setup</span>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>Exit Reasons</span>
+    </div>
+
+    <div class="header-content">
+
+        <div class="header-left">
+            <h4>Exit Reasons</h4>
+            <p>Define reasons to be selected on employee separation</p>
+        </div>
+
+        <div class="header-buttons">
+            <button class="btn-add">
+                <i class="ri-add-line"></i>
+                Add New
+            </button>
+
+            <button class="btn-help">
+                <i class="ri-book-open-line"></i>
+                Read Help
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-body p-0">
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered align-middle">
+
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th width="150">ACTIONS</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Resignation</td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+
+                            <a href="#" class="action-btn delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Retirement</td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+
+                            <a href="#" class="action-btn delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Termination</td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+
+                            <a href="#" class="action-btn delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Absconding</td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+
+                            <a href="#" class="action-btn delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Contract Completion</td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn">
+                                <i class="ri-pencil-line"></i>
+                            </a>
+
+                            <a href="#" class="action-btn delete-btn">
+                                <i class="ri-delete-bin-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+@endsection
+
+@section('script')
+<script src="{{ asset('assets/admin/js/exit.js') }}"></script>
+@endsection

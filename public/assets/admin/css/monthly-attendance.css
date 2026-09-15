@@ -1,0 +1,425 @@
+.monthly-attendance-page{
+    padding:22px 24px 35px;
+    background:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.breadcrumb-text{
+    font-size:12px;
+    color:#7b8494;
+    margin-bottom:8px;
+}
+
+.page-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom:1px solid #e5e7eb;
+    padding-bottom:14px;
+    margin-bottom:14px;
+}
+
+.page-title{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+}
+
+.page-subtitle{
+    margin:5px 0 0;
+    font-size:13px;
+    color:#6b7280;
+}
+
+.top-actions{
+    display:flex;
+    gap:8px;
+}
+
+.option-btn,
+.help-btn{
+    height:34px;
+    border:0;
+    border-radius:6px;
+    padding:0 14px;
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.option-btn{background:linear-gradient(135deg,#133C5A,#1d567f);}
+.help-btn{background:linear-gradient(135deg,#10b981,#22c55e);}
+
+.filter-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:12px;
+}
+
+.filter-box{
+    width:165px;
+}
+
+.filter-box label{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:5px;
+}
+
+.filter-box select,
+.employee-select{
+    width:100%;
+    height:36px;
+    border:1px solid #d8dee8;
+    border-radius:6px;
+    padding:0 12px;
+    background:#fff;
+    font-size:13px;
+    color:#111827;
+    outline:none;
+}
+
+.action-row{
+    display:flex;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.date-btn{
+    width:42px;
+    height:36px;
+    border:0;
+    background:#65758d;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.month-input{
+    width:130px;
+    height:36px;
+    border:1px solid #d8dee8;
+    border-left:0;
+    border-right:0;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    color:#111827;
+    outline:none;
+}
+
+.employee-select{
+    width:260px;
+    margin-left:8px;
+    border-radius:6px 0 0 6px;
+}
+
+.view-btn{
+    height:36px;
+    width:82px;
+    border:0;
+    background:#65758d;
+    color:#fff;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    border-radius:0 6px 6px 0;
+    cursor:pointer;
+}
+
+.monthly-main-row{
+    display:grid;
+    grid-template-columns:330px 1fr;
+    gap:18px;
+    align-items:stretch;
+}
+
+.employee-card,
+.calendar-card,
+.faq-card{
+    border:1px solid #cfd8e5;
+    border-radius:10px;
+    background:#fff;
+    box-shadow:0 4px 14px rgba(15,23,42,.05);
+}
+
+.employee-card{
+    padding:18px;
+}
+
+.employee-card h5{
+    margin:0 0 20px;
+    font-size:14px;
+    font-weight:700;
+    color:#111827;
+}
+
+.emp-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px 18px;
+    border-bottom:1px solid #edf0f4;
+    padding-bottom:18px;
+}
+
+.emp-grid label{
+    display:block;
+    font-size:11px;
+    color:#8b95a5;
+    margin-bottom:4px;
+}
+
+.emp-grid p{
+    margin:0;
+    font-size:12px;
+    font-weight:600;
+    color:#374151;
+}
+
+.emp-actions{
+    display:flex;
+    gap:8px;
+    margin-top:14px;
+}
+
+.replace-btn,
+.recalculate-btn{
+    height:31px;
+    border:0;
+    border-radius:5px;
+    padding:0 12px;
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.replace-btn{
+    background:#f8d49a;
+    color:#111827;
+}
+
+.recalculate-btn{
+    background:#16c7a6;
+    color:#fff;
+}
+
+.calendar-card{
+    overflow:hidden;
+}
+
+.calendar-table{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    min-height:250px;
+}
+
+.cal-head{
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-right:1px solid #dfe5ee;
+    border-bottom:1px solid #dfe5ee;
+    font-size:11px;
+    font-weight:700;
+    color:#111827;
+    background:#f8fafc;
+}
+
+.cal-cell{
+    height:42px;
+    border-right:1px solid #dfe5ee;
+    border-bottom:1px solid #dfe5ee;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0 9px;
+    font-size:12px;
+    font-weight:700;
+    color:#111827;
+    position:relative;
+}
+
+.cal-cell span{
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    background:#74879d;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:11px;
+    flex-shrink:0;
+}
+
+.cal-cell i{
+    margin-left:auto;
+    font-size:12px;
+}
+
+.present{background:#72d5dc;}
+.absent{background:#ff787f;}
+.leave{background:#df73dc;}
+.weekoff{background:#b4b4b4;}
+.blank{background:#fff;}
+
+.slash::after{
+    content:"";
+    position:absolute;
+    right:48px;
+    top:0;
+    width:18px;
+    height:100%;
+    background:repeating-linear-gradient(
+        180deg,
+        transparent 0,
+        transparent 5px,
+        rgba(255,255,255,.85) 5px,
+        rgba(255,255,255,.85) 9px
+    );
+}
+
+.legend-title{
+    margin-top:14px;
+    margin-bottom:6px;
+    font-size:12px;
+    font-weight:700;
+    color:#374151;
+}
+
+.legend-bar{
+    background:#10284a;
+    color:#fff;
+    font-size:11px;
+    padding:9px 11px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    border-radius:4px;
+}
+
+.faq-card{
+    margin-top:16px;
+    padding:18px 20px;
+}
+
+.faq-card h5{
+    margin:0 0 16px;
+    font-size:16px;
+    font-weight:700;
+    color:#111827;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.faq-card h5 i{
+    color:#facc15;
+    font-size:22px;
+}
+
+.faq-item{
+    border:1px solid #edf1f5;
+    border-radius:8px;
+    margin-bottom:10px;
+    overflow:hidden;
+    background:#fff;
+    transition:.25s ease;
+}
+
+.faq-item.active{
+    border-color:#133C5A;
+    box-shadow:0 5px 16px rgba(19,60,90,.10);
+}
+
+.faq-question{
+    min-height:42px;
+    padding:0 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    cursor:pointer;
+    font-size:13px;
+    font-weight:700;
+    color:#263238;
+}
+
+.faq-question i{
+    font-size:18px;
+    color:#133C5A;
+    flex-shrink:0;
+}
+
+.faq-answer{
+    display:none;
+    margin:0 14px 14px;
+    padding:10px 12px;
+    background:#f8fafc;
+    border-left:3px solid #133C5A;
+    border-radius:6px;
+    font-size:13px;
+    line-height:1.6;
+    font-weight:400;
+    color:#5f6b7a;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
+@media(max-width:991px){
+    .page-head{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .monthly-main-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+    .monthly-attendance-page{
+        padding:15px;
+    }
+
+    .filter-box,
+    .employee-select{
+        width:100%;
+        margin-left:0;
+        border-radius:6px;
+    }
+
+    .action-row{
+        flex-wrap:wrap;
+        gap:8px;
+    }
+
+    .month-input{
+        border:1px solid #d8dee8;
+        border-radius:6px;
+    }
+
+    .date-btn,
+    .view-btn{
+        border-radius:6px;
+    }
+
+    .calendar-card{
+        overflow-x:auto;
+    }
+
+    .calendar-table{
+        min-width:850px;
+    }
+}

@@ -1,0 +1,368 @@
+
+.salary-summary-page{
+    padding:20px;
+    background:#fff;
+    min-height:100vh;
+    margin-bottom:15px;
+}
+
+.breadcrumb-text{
+    font-size:12px;
+    color:#94a3b8;
+    margin-bottom:10px;
+    font-weight:500;
+}
+
+.page-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.page-title{
+    font-size:18px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:4px;
+}
+
+.page-subtitle{
+    font-size:13px;
+    color:#64748b;
+    margin-bottom:18px;
+}
+
+.help-btn,
+.filter-btn,
+.view-btn,
+.save-btn{
+    border:none;
+    background:linear-gradient(135deg,#133C5A,#1d567f);
+    color:#fff;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.help-btn{
+    padding:8px 14px;
+    background:linear-gradient(135deg,#10b981,#22c55e);
+}
+
+.top-filter-grid{
+    display:grid;
+    grid-template-columns:repeat(5,minmax(140px,1fr));
+    gap:12px;
+    margin-bottom:14px;
+    max-width:760px;
+}
+
+.filter-group label{
+    display:block;
+    font-size:11px;
+    color:#475569;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.filter-select,
+.employee-input,
+.month-box{
+    height:36px;
+    border:1px solid #dbe2ea;
+    border-radius:6px;
+    background:#fff;
+    color:#334155;
+    font-size:12px;
+    font-weight:500;
+    padding:0 12px;
+    outline:none;
+}
+
+.filter-select{
+    width:100%;
+    height:36px;
+    border:1px solid #dbe2ea;
+    border-radius:6px;
+    padding:0 34px 0 12px !important;
+    font-size:13px;
+    color:#0f172a;
+    background-color:#fff;
+    outline:none;
+    appearance:auto;
+}
+
+.filter-group{
+    position:relative;
+}
+
+.top-filter-grid .filter-select{
+    min-width:100%;
+}
+.filter-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:24px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    width:38px;
+    height:36px;
+    font-size:17px;
+}
+
+.month-box{
+    width:130px;
+    text-align:center;
+}
+
+.employee-input{
+    width:190px;
+}
+
+.view-btn{
+    height:36px;
+    padding:0 14px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.report-options-card{
+    background:#fff;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    padding:26px 36px !important;
+    margin-top:22px;
+    box-shadow:0 3px 10px rgba(0,0,0,.04);
+    overflow:hidden;
+}
+
+.report-options-title{
+    font-size:16px;
+    font-weight:700;
+    color:#0f172a;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.report-options-card hr{
+    border:none;
+    border-top:1px solid #dbe2ea;
+    margin:0 0 20px;
+}
+
+.records-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    padding:0 14px;
+    margin-bottom:28px;
+}
+
+.records-row h6,
+.check-column h6{
+    font-size:14px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:12px;
+}
+
+.record-checks{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.checkbox-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(190px,1fr));
+    column-gap:70px;
+    row-gap:25px;
+    padding:0 14px;
+}
+
+.check-column{
+    min-width:0;
+}
+
+.form-check{
+    display:flex !important;
+    align-items:center !important;
+    gap:9px !important;
+    padding-left:0 !important;
+    margin:0 0 10px 0 !important;
+    min-height:auto !important;
+}
+
+.form-check-input{
+    position:static !important;
+    float:none !important;
+    margin:0 !important;
+    width:16px !important;
+    height:16px !important;
+    min-width:16px !important;
+    border:1px solid #a8b5c7 !important;
+    border-radius:4px !important;
+    cursor:pointer;
+    box-shadow:none !important;
+}
+
+.form-check-input:checked{
+    background-color:#40548b !important;
+    border-color:#40548b !important;
+}
+
+.form-check-label{
+    font-size:14px;
+    font-weight:500;
+    color:#0f172a;
+    line-height:1.2;
+    margin:0 !important;
+    cursor:pointer;
+}
+
+/* Proper Toggle Switch Fix */
+.form-switch{
+    padding-left:0 !important;
+}
+
+.form-switch .form-check-input{
+    width:40px !important;
+    height:22px !important;
+    min-width:40px !important;
+    border-radius:50px !important;
+    border:1px solid #cbd5e1 !important;
+    background-color:#e2e8f0 !important;
+    background-image:none !important;
+    position:relative !important;
+    cursor:pointer;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+    transition:all .25s ease;
+}
+
+.form-switch .form-check-input::before{
+    content:"";
+    position:absolute;
+    width:16px;
+    height:16px;
+    top:2px;
+    left:3px;
+    background:#fff;
+    border-radius:50%;
+    box-shadow:0 2px 5px rgba(0,0,0,.25);
+    transition:all .25s ease;
+}
+
+.form-switch .form-check-input:checked{
+    background-color:#40548b !important;
+    border-color:#40548b !important;
+}
+
+.form-switch .form-check-input:checked::before{
+    transform:translateX(18px);
+}
+
+.form-switch .form-check-input:focus{
+    box-shadow:0 0 0 3px rgba(64,84,139,.18) !important;
+}
+.hold-check{
+    margin-top:28px !important;
+    white-space:nowrap;
+}
+
+/* Bottom Fields */
+.rounding-row{
+    display:flex;
+    gap:14px;
+    margin-top:28px;
+    padding:0 14px;
+}
+
+.small-filter{
+    width:130px;
+}
+
+.small-filter label{
+    display:block;
+    font-size:12px;
+    font-weight:700;
+    color:#334155;
+    margin-bottom:6px;
+}
+
+.filter-select{
+    width:100%;
+    height:36px;
+    border:1px solid #dbe2ea;
+    border-radius:6px;
+    padding:0 12px;
+    font-size:13px;
+    color:#0f172a;
+    background:#fff;
+}
+
+.save-area{
+    border-top:1px solid #dbe2ea;
+    margin-top:26px;
+    padding:20px 14px 0;
+}
+
+.save-btn{
+    background:linear-gradient(135deg,#133C5A,#1d567f);
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    padding:9px 18px;
+    font-size:13px;
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+}
+
+/* Responsive */
+@media(max-width:1200px){
+    .checkbox-grid{
+        grid-template-columns:repeat(2,1fr);
+        column-gap:45px;
+    }
+}
+
+@media(max-width:768px){
+    .report-options-card{
+        padding:20px !important;
+    }
+
+    .records-row{
+        flex-direction:column;
+        padding:0;
+    }
+
+    .checkbox-grid{
+        grid-template-columns:1fr;
+        padding:0;
+    }
+
+    .rounding-row{
+        flex-direction:column;
+        padding:0;
+    }
+
+    .small-filter{
+        width:100%;
+    }
+
+    .save-area{
+        padding-left:0;
+        padding-right:0;
+    }
+}

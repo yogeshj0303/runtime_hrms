@@ -1,0 +1,252 @@
+@extends('layouts.master')
+
+@section('title')
+    All Employees
+@endsection
+
+@section('css')
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+<link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet">
+
+@endsection
+
+@section('content')
+
+<div class="helpdesk-header">
+
+    <div class="breadcrumb-section">
+        <span>Employees</span>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>Employee Management</span>
+        <i class="ri-arrow-right-s-line"></i>
+        <span>All Employees</span>
+    </div>
+
+    <!-- Alert for pending confirmations -->
+    <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+        <strong>Employee confirmation updates available.</strong> <a href="#" class="alert-link">Read More</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="header-content">
+
+        <div class="header-left">
+            <h4>All Employees</h4>
+            <p class="text-muted">
+                List of employees. Filter by location, cost center or department.
+            </p>
+        </div>
+
+        <div class="header-buttons">
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-body">
+
+        <!-- Filters Form -->
+        <form action="{{ route('business.employee') }}" method="GET" id="employeeFilterForm">
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label fs-12 text-muted mb-1">Business Unit</label>
+                    <select class="form-select form-select-sm" name="business_unit_id" onchange="this.form.submit()">
+                        <option value="">All Units</option>
+                        @foreach($businessUnits as $unit)
+                            <option value="{{ $unit->id }}" {{ request('business_unit_id') == $unit->id ? 'selected' : '' }}>{{ $unit->name ?? $unit->business_name ?? 'Unit ' . $unit->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fs-12 text-muted mb-1">Location</label>
+                    <select class="form-select form-select-sm" name="location_id" onchange="this.form.submit()">
+                        <option value="">All Locations</option>
+                        @foreach($locations as $loc)
+                            <option value="{{ $loc->id }}" {{ request('location_id') == $loc->id ? 'selected' : '' }}>{{ $loc->name ?? 'Location ' . $loc->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fs-12 text-muted mb-1">Cost Center</label>
+                    <select class="form-select form-select-sm" name="cost_center_id" onchange="this.form.submit()">
+                        <option value="">All Cost Centers</option>
+                        @foreach($costCenters as $cc)
+                            <option value="{{ $cc->id }}" {{ request('cost_center_id') == $cc->id ? 'selected' : '' }}>{{ $cc->name ?? 'CC ' . $cc->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fs-12 text-muted mb-1">Department</label>
+                    <select class="form-select form-select-sm" name="department_id" onchange="this.form.submit()">
+                        <option value="">All Departments</option>
+                        @foreach($departments as $dept)
+                            <option value="{{ $dept->id }}" {{ request('department_id') == $dept->id ? 'selected' : '' }}>{{ $dept->name ?? 'Dept ' . $dept->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fs-12 text-muted mb-1">Designation</label>
+                    <select class="form-select form-select-sm" name="designation_id" onchange="this.form.submit()">
+                        <option value="">All Designations</option>
+                        @foreach($designations as $desig)
+                            <option value="{{ $desig->id }}" {{ request('designation_id') == $desig->id ? 'selected' : '' }}>{{ $desig->name ?? 'Desig ' . $desig->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <!-- Search and Status Toggle -->
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div style="width: 250px;">
+                    <label class="form-label fs-12 text-muted mb-1">Search Employee</label>
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" name="search" placeholder="Search employee" value="{{ request('search') }}">
+                        <button type="submit" class="btn btn-secondary"><i class="ri-search-line"></i></button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="form-check form-switch d-flex align-items-center gap-2">
+                        <label class="form-check-label fs-13 fw-bold text-primary" for="statusActive">Active</label>
+                        <input class="form-check-input ms-0 mt-0" style="width: 35px; height: 18px;" type="checkbox" role="switch" name="status" id="statusActive" value="active" {{ request('status', 'active') == 'active' ? 'checked' : '' }} onchange="if(!this.checked) this.value='inactive'; this.form.submit()">
+                        <label class="form-check-label fs-13 text-muted" for="statusInactive">Inactive</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Employee Table -->
+        <div class="table-responsive">
+            <table id="employeeTable" class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Employee</th>
+                        <th>Employee Code</th>
+                        <th>Designation</th>
+                        <th>Department</th>
+                        <th>Location</th>
+                        <th>Joining Date</th>
+                        <th>Status</th>
+                        <th width="120">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($employees as $index => $employee)
+                    @php
+                        $wp = $employee->workProfiles->first();
+                        $designationName = $wp && $wp->designation ? $wp->designation->name : $employee->designation;
+                        $departmentName = $wp && $wp->department ? $wp->department->name : $employee->department;
+                        $locationName = $wp && $wp->location ? $wp->location->name : 'N/A';
+                    @endphp
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>
+                            <a href="{{ route('employee.profile.summary', $employee->id) }}" class="text-body fw-bold">
+                                {{ $employee->first_name }} {{ $employee->last_name }}
+                            </a>
+                        </td>
+                        <td>{{ $employee->employee_code }}</td>
+                        <td>{{ $designationName }}</td>
+                        <td>{{ $departmentName }}</td>
+                        <td>{{ $locationName }}</td>
+                        <td>{{ $employee->joining_date ? $employee->joining_date->format('d-M-Y') : 'N/A' }}</td>
+                        <td>
+                            @if($employee->status === 'inactive')
+                                <span class="badge bg-danger mb-1">Inactive</span>
+                                @if($employee->exit_date)
+                                    <div class="fs-11 text-muted">Exited: {{ \Carbon\Carbon::parse($employee->exit_date)->format('d-M-Y') }}</div>
+                                @endif
+                            @else
+                                <span class="badge bg-success mb-1">Active</span>
+                                <!-- Mock confirmation pending check -->
+                                @if(rand(0, 3) == 1)
+                                    <br><a href="#" class="badge bg-info mt-1">Confirm</a>
+                                @endif
+                            @endif
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-soft-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+                                    Options
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('employee.profile.summary', ['id' => $employee->id]) }}" class="dropdown-item">
+                                            <i class="ri-eye-line me-2"></i> View
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('employee.profile.basic', ['id' => $employee->id]) }}" class="dropdown-item">
+                                            <i class="ri-pencil-line me-2"></i> Edit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('employee.statement', ['id' => $employee->id]) }}" class="dropdown-item">
+                                            <i class="ri-file-download-line me-2"></i> Download Statement
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <form action="{{ route('employee.toggle-status', ['id' => $employee->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item text-{{ $employee->status === 'inactive' ? 'success' : 'danger' }}">
+                                                <i class="ri-shut-down-line me-2"></i> {{ $employee->status === 'inactive' ? 'Activate' : 'Deactivate' }}
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="8" class="text-center py-4 text-muted">No employees found.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+@endsection
+
+@section('script')
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+
+$(document).ready(function () {
+
+    $('#employeeTable').DataTable({
+
+        responsive: true,
+
+        pageLength: 10,
+
+        ordering: true,
+
+        searching: true
+
+    });
+
+});
+
+</script>
+
+@endsection

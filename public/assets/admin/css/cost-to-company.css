@@ -1,0 +1,252 @@
+:root{
+    --primary:#133C5A;
+    --primary-gradient:linear-gradient(135deg,#133C5A,#1d567f);
+    --border:#d9e2ec;
+    --text:#1f2937;
+    --muted:#64748b;
+}
+
+.ctc-page{
+    background:#fff;
+    min-height:100vh;
+    padding:20px 25px;
+    font-family:'Poppins',sans-serif;
+}
+
+.ctc-breadcrumb{
+    font-size:12px;
+    color:#94a3b8;
+    font-weight:500;
+    margin-bottom:10px;
+}
+
+/* Title */
+.ctc-title{
+    font-size:22px;
+    font-weight:700;
+    color:#111827;
+    margin:0 0 5px;
+    line-height:1.3;
+}
+
+/* Subtitle */
+.ctc-subtitle{
+    font-size:14px;
+    color:#64748b;
+    margin:0 0 20px;
+    line-height:1.5;
+    font-weight:400;
+}
+
+.ctc-divider{
+    height:1px;
+    background:#e5e7eb;
+    margin-bottom:20px;
+}
+
+/* Filters */
+.ctc-filter-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.ctc-field{
+    min-width:240px;
+}
+
+.ctc-field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:#374151;
+    margin-bottom:6px;
+}
+
+.ctc-field select{
+    width:100%;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0 12px;
+    font-size:13px;
+    color:var(--text);
+    background:#fff;
+    outline:none;
+    transition:.3s;
+}
+
+.ctc-field select:focus{
+    border-color:#133C5A;
+    box-shadow:0 0 0 3px rgba(19,60,90,.08);
+}
+
+/* Radio & Checkbox */
+.ctc-options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.radio-row,
+.check-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    color:#111827;
+    font-weight:500;
+}
+
+.radio-row input[type="radio"],
+.check-row input[type="checkbox"]{
+    width:16px;
+    height:16px;
+    accent-color:#133C5A;
+    cursor:pointer;
+}
+
+.date-box{
+    width:140px;
+    height:38px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0 10px;
+    font-size:13px;
+    margin-left:8px;
+    outline:none;
+}
+
+/* Search Row */
+.ctc-action-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+}
+
+.employee-search{
+    width:300px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0 12px;
+    font-size:13px;
+    outline:none;
+}
+
+.employee-search:focus{
+    border-color:#133C5A;
+    box-shadow:0 0 0 3px rgba(19,60,90,.08);
+}
+
+.format-select{
+    width:180px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0 12px;
+    font-size:13px;
+    background:#fff;
+    outline:none;
+}
+
+/* Buttons */
+.ctc-btn-row{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.ctc-btn{
+    border:none;
+    background:var(--primary-gradient);
+    color:#fff;
+    height:40px;
+    padding:0 18px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:.3s;
+}
+
+.ctc-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 15px rgba(19,60,90,.15);
+}
+
+/* Help Box */
+.ctc-help-box{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 20px;
+    background:#fff;
+}
+
+.ctc-help-box h5{
+    font-size:16px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:10px;
+}
+
+.ctc-help-box ul{
+    padding-left:18px;
+    margin:0;
+}
+
+.ctc-help-box li{
+    font-size:13px;
+    color:#4b5563;
+    line-height:1.8;
+}
+
+/* Responsive */
+@media(max-width:992px){
+
+    .ctc-page{
+        padding:20px;
+    }
+
+    .ctc-field{
+        min-width:100%;
+    }
+
+    .employee-search,
+    .format-select{
+        width:100%;
+    }
+}
+
+@media(max-width:576px){
+
+    .ctc-page{
+        padding:15px;
+    }
+
+    .ctc-title{
+        font-size:20px;
+    }
+
+    .ctc-subtitle{
+        font-size:13px;
+    }
+
+    .ctc-action-row,
+    .ctc-btn-row{
+        flex-direction:column;
+    }
+
+    .ctc-btn{
+        width:100%;
+        justify-content:center;
+    }
+}

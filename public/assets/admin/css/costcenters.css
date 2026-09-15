@@ -1,0 +1,140 @@
+
+    .helpdesk-header{
+        background:#fff;
+        border:1px solid #e9ecef;
+        border-radius:8px;
+        padding:20px;
+        margin-bottom:20px;
+    }
+
+    .breadcrumb-section{
+        display:flex;
+        align-items:center;
+        gap:5px;
+        font-size:12px;
+        color:#878a99;
+        margin-bottom:12px;
+    }
+
+    .header-content{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .header-left h4{
+        margin:0;
+        font-size:22px;
+        font-weight:600;
+        color:#212529;
+    }
+
+    .header-left p{
+        margin:5px 0 0;
+        font-size:13px;
+        color:#878a99;
+    }
+
+    .header-buttons{
+        display:flex;
+        gap:10px;
+        align-items:center;
+    }
+
+    .btn-add,
+    .btn-help{
+        border:none;
+        padding:8px 16px;
+        border-radius:6px;
+        color:#fff;
+        font-size:13px;
+        font-weight:500;
+        display:flex;
+        align-items:center;
+        gap:6px;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    .btn-add{
+        background:#3577f1;
+    }
+
+    .btn-add:hover{
+        background:#2d68d8;
+    }
+
+    .btn-help{
+        background:#0ab39c;
+    }
+
+    .btn-help:hover{
+        background:#089981;
+    }
+
+    .card{
+        border:none;
+        border-radius:8px;
+        overflow:hidden;
+        box-shadow:0 1px 3px rgba(0,0,0,.08);
+    }
+
+    .table{
+        margin-bottom:0;
+    }
+
+    .table thead th{
+        background:#f8f9fa;
+        font-size:13px;
+        font-weight:600;
+        color:#495057;
+        padding:14px;
+        text-transform:uppercase;
+    }
+
+    .table tbody td{
+        padding:14px;
+        vertical-align:middle;
+        font-size:14px;
+    }
+
+    .action-btn{
+        width:34px;
+        height:34px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:6px;
+        text-decoration:none;
+        margin-right:5px;
+    }
+
+    .edit-btn{
+        background:#3577f1;
+        color:#fff;
+    }
+
+    .delete-btn{
+        background:#f06548;
+        color:#fff;
+    }
+
+    .action-btn i{
+        font-size:16px;
+    }
+
+    @media(max-width:768px){
+
+        .header-content{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        .header-buttons{
+            width:100%;
+            flex-wrap:wrap;
+        }
+    }
+

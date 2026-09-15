@@ -1,0 +1,112 @@
+<html xmlns:x="urn:schemas-microsoft-com:office:excel">
+<head>
+    <!--[if gte mso 9]>
+    <xml>
+        <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+                <x:ExcelWorksheet>
+                    <x:Name>Weekly Task Doc</x:Name>
+                    <x:WorksheetOptions>
+                        <x:DisplayGridlines/>
+                    </x:WorksheetOptions>
+                </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+        </x:ExcelWorkbook>
+    </xml>
+    <![endif]-->
+    <style>
+        table { border-collapse: collapse; font-family: Calibri, sans-serif; }
+        td, th { border: 1px solid #000000; padding: 5px; }
+        .header { background-color: #d9ead3; font-size: 14pt; font-weight: bold; text-align: center; height: 30px; }
+        .subheader { background-color: #c9daf8; font-weight: bold; }
+        .row-green { background-color: #93c47d; }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="6" class="header">22 june-2026 to 29-june-2026</th>
+        </tr>
+        <tr class="subheader">
+            <th width="100">Date</th>
+            <th width="150">Project Name</th>
+            <th width="400">Description of Work</th>
+            <th width="80">Target %</th>
+            <th width="80">Achived %</th>
+            <th width="80">Status</th>
+        </tr>
+        <tr class="row-green">
+            <td>22 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Developed APIs and prepared modules for Overtime Policies & Rules.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr>
+            <td>23 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Code testing and project discussions on Overtime implementations.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr>
+            <td>24 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Performed application testing and issue verification.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr class="row-green">
+            <td>25 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Developed Salary Claims, Shift Policies, Time Rules, and Week Off Policies.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr>
+            <td>25 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Updated Attendance Settings and handled missing columns in Leave Types.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr class="row-green">
+            <td>26 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Developed Comp Off Rules, Strike Rules, and Maternity Leave Policy APIs.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr>
+            <td>27 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Developed comprehensive Employee Profiles and related details modules.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr>
+            <td>28 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Worked on APIs and modules for Employee configurations.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+        <tr class="row-green">
+            <td>29 June 2026</td>
+            <td>Somya HRMS</td>
+            <td>Code testing, bug fixing and final review of the weekly modules.</td>
+            <td>100%</td>
+            <td>100%</td>
+            <td>Done</td>
+        </tr>
+    </table>
+</body>
+</html>
