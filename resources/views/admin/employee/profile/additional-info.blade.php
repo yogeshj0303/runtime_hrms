@@ -3,6 +3,12 @@
 @section('profile_title', 'Additional Info')
 @section('profile_description', 'Manage additional employee details, notes, and custom fields.')
 
+@section('profile_actions')
+<button type="submit" form="additionalInfoForm" class="btn-hrms-crimson">
+    <i class="ri-save-line"></i> Save Info
+</button>
+@endsection
+
 @section('profile_content')
 @php
     $customFields = $additionalInfo && is_array($additionalInfo->custom_fields) 
@@ -10,7 +16,7 @@
         : ($additionalInfo && is_string($additionalInfo->custom_fields) ? json_decode($additionalInfo->custom_fields, true) : []);
 @endphp
 
-<form action="{{ route('employee.profile.additional-info.update', ['id' => $employee->id]) }}" method="POST">
+<form id="additionalInfoForm" action="{{ route('employee.profile.additional-info.update', ['id' => $employee->id]) }}" method="POST">
     @csrf
 
     <div class="row g-4">

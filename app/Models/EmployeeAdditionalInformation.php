@@ -11,6 +11,10 @@ class EmployeeAdditionalInformation extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'custom_fields' => 'array',
+    ];
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);
