@@ -63,6 +63,8 @@
                                 <option value="Permanent">Permanent</option>
                                 <option value="Current">Current</option>
                                 <option value="Emergency">Emergency</option>
+                                <option value="Work">Work</option>
+                                <option value="Temporary">Temporary</option>
                             </select>
                         </div>
                     </div>
@@ -126,6 +128,7 @@
         document.getElementById('addressForm').action = "{{ route('employee.profile.address.store') }}";
         document.getElementById('addressMethod').value = "POST";
         document.getElementById('addressModalLabel').innerText = "Add Address";
+        document.getElementById('country').value = "India";
     }
 
     function editAddress(address) {
@@ -133,13 +136,50 @@
         document.getElementById('addressForm').action = "/business/employee/profile/address/update/" + address.id;
         document.getElementById('addressMethod').value = "PUT";
         
-        document.getElementById('type').value = address.type;
-        document.getElementById('address1').value = address.address1;
-        document.getElementById('address2').value = address.address2;
-        document.getElementById('city').value = address.city;
-        document.getElementById('zipcode').value = address.zipcode;
-        document.getElementById('state').value = address.state;
-        document.getElementById('country').value = address.country;
+        // Select matching type (case-insensitive)
+        const typeSelect = document.getElementById('type');
+        let matched = false;
+        if (address.type) {
+            for (let i = 0; i < typeSelect.options.length; i++) {
+                if (typeSelect.options[i].value.toLowerCase() === address.type.toString().toLowerCase().trim()) {
+                    typeSelect.selectedIndex = i;
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                let opt = document.createElement('option');
+                opt.value = address.type;
+                opt.text = address.type;
+                typeSelect.add(opt);
+                typeSelect.value = address.type;
+            }
+        }
+        
+        document.getElementById('address1').value = address.address1 || '';
+        document.getElementById('address2').value = address.address2 || '';
+        document.getElementById('city').value = address.city || '';
+        document.getElementById('zipcode').value = address.zipcode || '';
+        
+        // Match state
+        const stateSelect = document.getElementById('state');
+        if (address.state) {
+            let stateMatched = false;
+            for (let i = 0; i < stateSelect.options.length; i++) {
+                if (stateSelect.options[i].value.toLowerCase() === address.state.toString().toLowerCase().trim()) {
+                    stateSelect.selectedIndex = i;
+                    stateMatched = true;
+                    break;
+                }
+            }
+            if (!stateMatched) {
+                stateSelect.value = address.state;
+            }
+        } else {
+            stateSelect.selectedIndex = 0;
+        }
+
+        document.getElementById('country').value = address.country || 'India';
         
         var addressModal = new bootstrap.Modal(document.getElementById('addressModal'));
         addressModal.show();
